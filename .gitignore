@@ -3,3 +3,6 @@
 /target
 .settings/
 lint.xml
+.classpath
+.project
+project.properties
