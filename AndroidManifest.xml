@@ -19,6 +19,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.car.CarTeamActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        
+        <activity android:name=".activity.collect.CollectActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        
+        <activity android:name=".activity.line.LineActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        
+        <activity android:name=".activity.map.OfflineMapActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        
+        <activity android:name=".activity.menu.MenuActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        
+        <activity android:name=".activity.mystyle.MystyleActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity android:name=".activity.order.OrderActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        
+        <activity android:name=".activity.photo.PhotoActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        
     </application>
 
 </manifest>

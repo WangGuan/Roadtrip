@@ -5,6 +5,13 @@ import android.view.View;
 import com.froyo.commonjar.fragment.BaseFragment;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.wy.roadtrip.R;
+import com.wy.roadtrip.activity.car.CarTeamActivity;
+import com.wy.roadtrip.activity.collect.CollectActivity;
+import com.wy.roadtrip.activity.line.LineActivity;
+import com.wy.roadtrip.activity.map.OfflineMapActivity;
+import com.wy.roadtrip.activity.menu.MenuActivity;
+import com.wy.roadtrip.activity.mystyle.MystyleActivity;
+import com.wy.roadtrip.activity.photo.PhotoActivity;
 
 /**
  * 
@@ -17,42 +24,42 @@ public class FragmentHome extends BaseFragment {
 
 	@Override
 	protected void setListener() {
-
+		
 	}
 	
 	@OnClick(R.id.rl_line)
 	void line(View view) {
-		activity.toast("我的线路");
+		activity.skip(LineActivity.class);
 	}
 
 	@OnClick(R.id.rl_collect)
 	void collect(View view) {
-		activity.toast("我的收藏");
+		activity.skip(CollectActivity.class);
 	}
 
 	@OnClick(R.id.rl_car)
 	void car(View view) {
-		activity.toast("我的车队");
+		activity.skip(CarTeamActivity.class);
 	}
 
 	@OnClick(R.id.rl_photo)
 	void photo(View view) {
-		activity.toast("我的相册");
+		activity.skip(PhotoActivity.class);
 	}
 
 	@OnClick(R.id.rl_mystyle)
 	void mystyle(View view) {
-		activity.toast("我的定制");
+		activity.skip(MystyleActivity.class);
 	}
 
 	@OnClick(R.id.rl_menu)
 	void menu(View view) {
-		activity.toast("菜单");
+		activity.skip(MenuActivity.class);
 	}
 
 	@OnClick(R.id.rl_map)
 	void offlineMap(View view) {
-		activity.toast("离线地图");
+		activity.skip(OfflineMapActivity.class);
 	}
 
 	@Override
