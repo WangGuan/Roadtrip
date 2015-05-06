@@ -1,8 +1,12 @@
 package com.wy.roadtrip.fragment;
 
+import android.graphics.Typeface;
+import android.util.TypedValue;
 import android.view.View;
+import android.widget.TextView;
 
 import com.froyo.commonjar.fragment.BaseFragment;
+import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.wy.roadtrip.R;
 import com.wy.roadtrip.activity.car.CarTeamActivity;
@@ -12,6 +16,7 @@ import com.wy.roadtrip.activity.map.OfflineMapActivity;
 import com.wy.roadtrip.activity.menu.MenuActivity;
 import com.wy.roadtrip.activity.mystyle.MystyleActivity;
 import com.wy.roadtrip.activity.photo.PhotoActivity;
+import com.wy.roadtrip.componet.BadgeView;
 
 /**
  * 
@@ -22,9 +27,18 @@ import com.wy.roadtrip.activity.photo.PhotoActivity;
  */
 public class FragmentHome extends BaseFragment {
 
+	
+	@ViewInject(R.id.tv_msg)
+	private TextView tv_msg;
+	
 	@Override
 	protected void setListener() {
-		
+		   BadgeView tips = new BadgeView(activity, tv_msg);
+           tips.setText("2");
+           tips.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);
+           tips.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
+//           tips.setBadgeMargin(-2, -3);
+           tips.toggle();
 	}
 	
 	@OnClick(R.id.rl_line)

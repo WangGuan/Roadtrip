@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -215,5 +216,10 @@ public class MainActivity extends BaseActivity {
 	@Override
 	protected int setLayoutResID() {
 		return R.layout.activity_main;
+	}
+	
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+
 	}
 }
