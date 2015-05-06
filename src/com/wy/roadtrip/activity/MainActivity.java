@@ -4,14 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.graphics.Color;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.SparseArray;
 import android.view.View;
 import android.widget.TextView;
 
 import com.froyo.commonjar.activity.BaseActivity;
+import com.froyo.commonjar.fragment.BaseFragment;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.wy.roadtrip.R;
 import com.wy.roadtrip.componet.TitleBar;
+import com.wy.roadtrip.fragment.FragmentGo;
+import com.wy.roadtrip.fragment.FragmentHome;
+import com.wy.roadtrip.fragment.FragmentInfo;
+import com.wy.roadtrip.fragment.FragmentMap;
 
 /**
  * 
@@ -36,11 +45,25 @@ public class MainActivity extends BaseActivity {
 
 	private List<TextView> tvList = new ArrayList<TextView>();
 	TitleBar bar = null;
+	
+	private SparseArray<Fragment> fragContainer = new SparseArray<Fragment>();
+
+	private static BaseFragment lastFragment;
 
 	@Override
 	public void doBusiness() {
 		bar = new TitleBar(activity);
 		bar.setTitle("首页");
+		
+		BaseFragment fragment = new FragmentHome();
+		lastFragment = fragment;
+		FragmentTransaction fragmentTransaction = getSupportFragmentManager()
+				.beginTransaction();
+		fragmentTransaction.replace(R.id.fl_content, fragment);
+		fragContainer.put(0, fragment);
+		fragmentTransaction.commit();
+		
+		
 		tvList.add(tvHome);
 		tvList.add(tvGo);
 		tvList.add(tvMap);
@@ -68,40 +91,7 @@ public class MainActivity extends BaseActivity {
 		changeBtnBg(3);
 	}
 
-	@OnClick(R.id.rl_line)
-	void line(View view) {
-		toast("我的线路");
-	}
 
-	@OnClick(R.id.rl_collect)
-	void collect(View view) {
-		toast("我的收藏");
-	}
-
-	@OnClick(R.id.rl_car)
-	void car(View view) {
-		toast("我的车队");
-	}
-
-	@OnClick(R.id.rl_photo)
-	void photo(View view) {
-		toast("我的相册");
-	}
-
-	@OnClick(R.id.rl_mystyle)
-	void mystyle(View view) {
-		toast("我的定制");
-	}
-
-	@OnClick(R.id.rl_menu)
-	void menu(View view) {
-		toast("菜单");
-	}
-
-	@OnClick(R.id.rl_map)
-	void offlineMap(View view) {
-		toast("离线地图");
-	}
 
 	private void changeBtnBg(int position) {
 		for (int i = 0; i < tvList.size(); i++) {
@@ -171,7 +161,56 @@ public class MainActivity extends BaseActivity {
 
 			break;
 		}
+		switchFragment(position);
 	}
+	
+	public void switchFragment(int position) {
+		Fragment fragment = null;
+		if (position == 0) {
+			fragment = fragContainer.get(0);
+			if (fragment == null) {
+				fragment = new FragmentHome();
+				fragContainer.put(0, fragment);
+			}
+		} else if (position == 1) {
+			fragment = fragContainer.get(1);
+			if (fragment == null) {
+				fragment = new FragmentGo();
+				fragContainer.put(1, fragment);
+			}
+
+		} else if (position == 2) {
+			fragment = fragContainer.get(2);
+			if (fragment == null) {
+				fragment = new FragmentMap();
+				fragContainer.put(2, fragment);
+			}
+		} else if (position == 3) {
+			if (fragment == null) {
+				fragment = new FragmentInfo();
+				fragContainer.put(3, fragment);
+			}
+		}
+
+		changeFragment(lastFragment, (BaseFragment) fragment);
+	}
+
+	private void changeFragment(BaseFragment pre, BaseFragment next) {
+		if (pre == next) {
+			return;
+		}
+		lastFragment = next;
+
+		FragmentManager fragmentManager = getSupportFragmentManager();
+		FragmentTransaction transaction = fragmentManager.beginTransaction();
+
+		if (!next.isAdded()) {
+			transaction.hide(pre).add(R.id.fl_content, next).commit();
+		} else {
+			transaction.hide(pre).show(next).commit();
+		}
+	}
+
 
 	@Override
 	protected int setLayoutResID() {
