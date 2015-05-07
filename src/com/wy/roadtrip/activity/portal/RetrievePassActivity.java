@@ -7,29 +7,28 @@ import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.wy.roadtrip.R;
 import com.wy.roadtrip.componet.TitleBar;
 /**
- * 
- * @Des: 注册
- * @author Rhino 
- * @version V1.0 
- * @created  2015年5月7日 上午10:00:32
+ * 找回密码
+ * @author wangyi
+ *
  */
-public class RegisterActivity extends BaseActivity {
+public class RetrievePassActivity extends BaseActivity {
 
 	@Override
 	public void doBusiness() {
 		TitleBar bar=new TitleBar(activity);
 		bar.showBack();
-		bar.setTitle("注册");
+		bar.setTitle("找回密码");
 	}
 	
-	@OnClick(R.id.btn_submit)
-	void submit(View view){
-		skip(AddInfoActivity.class);
+	
+	@OnClick(R.id.btn_next)
+	void next(View view){
+		skip(ResetPassActivity.class);
 	}
 	
 	@Override
 	protected int setLayoutResID() {
-		return R.layout.activity_register;
+		return R.layout.activity_retrieve_pass;
 	}
 
 }
