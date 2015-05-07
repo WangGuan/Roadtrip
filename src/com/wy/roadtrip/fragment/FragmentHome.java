@@ -1,22 +1,21 @@
 package com.wy.roadtrip.fragment;
 
-import android.graphics.Typeface;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
 
+import com.froyo.commonjar.componet.BadgeView;
 import com.froyo.commonjar.fragment.BaseFragment;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.wy.roadtrip.R;
 import com.wy.roadtrip.activity.car.CarTeamActivity;
-import com.wy.roadtrip.activity.collect.CollectActivity;
-import com.wy.roadtrip.activity.line.LineActivity;
 import com.wy.roadtrip.activity.map.OfflineMapActivity;
 import com.wy.roadtrip.activity.menu.MenuActivity;
 import com.wy.roadtrip.activity.mystyle.MystyleActivity;
 import com.wy.roadtrip.activity.photo.PhotoActivity;
-import com.wy.roadtrip.componet.BadgeView;
+import com.wy.roadtrip.activity.portal.LoginActivity;
+import com.wy.roadtrip.activity.portal.RegisterActivity;
 
 /**
  * 
@@ -37,18 +36,19 @@ public class FragmentHome extends BaseFragment {
            tips.setText("2");
            tips.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);
            tips.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
-//           tips.setBadgeMargin(-2, -3);
            tips.toggle();
 	}
 	
 	@OnClick(R.id.rl_line)
 	void line(View view) {
-		activity.skip(LineActivity.class);
+//		activity.skip(LineActivity.class);
+		activity.skip(LoginActivity.class);
 	}
 
 	@OnClick(R.id.rl_collect)
 	void collect(View view) {
-		activity.skip(CollectActivity.class);
+//		activity.skip(CollectActivity.class);
+		activity.skip(RegisterActivity.class);
 	}
 
 	@OnClick(R.id.rl_car)
