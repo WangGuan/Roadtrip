@@ -10,12 +10,12 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.wy.roadtrip.R;
 import com.wy.roadtrip.activity.car.CarTeamActivity;
+import com.wy.roadtrip.activity.collect.CollectActivity;
 import com.wy.roadtrip.activity.map.OfflineMapActivity;
 import com.wy.roadtrip.activity.menu.MenuActivity;
 import com.wy.roadtrip.activity.mystyle.MystyleActivity;
 import com.wy.roadtrip.activity.photo.PhotoActivity;
 import com.wy.roadtrip.activity.portal.LoginActivity;
-import com.wy.roadtrip.activity.portal.RegisterActivity;
 
 /**
  * 
@@ -47,8 +47,7 @@ public class FragmentHome extends BaseFragment {
 
 	@OnClick(R.id.rl_collect)
 	void collect(View view) {
-//		activity.skip(CollectActivity.class);
-		activity.skip(RegisterActivity.class);
+		activity.skip(CollectActivity.class);
 	}
 
 	@OnClick(R.id.rl_car)
