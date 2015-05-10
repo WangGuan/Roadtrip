@@ -2,13 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="@android:color/white">
 
     <include layout="@layout/layout_title_bar" />
 
-    <TextView
+    <com.froyo.commonjar.view.CustomListView
+        android:id="@+id/list_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="我的线路" />
+        android:layout_height="fill_parent"
+        android:drawSelectorOnTop="false" 
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
 
 </LinearLayout>

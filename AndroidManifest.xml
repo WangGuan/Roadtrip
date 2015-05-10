@@ -28,6 +28,12 @@
         
         <activity android:name=".activity.line.LineActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity android:name=".activity.line.LinePreviewActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity android:name=".activity.line.LineEditActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         
         <activity android:name=".activity.map.OfflineMapActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />

@@ -65,4 +65,6 @@ public class TitleBar {
 	public void hideTitle(){
 		tv_title.setVisibility(View.GONE);
 	}
+	
+	
 }

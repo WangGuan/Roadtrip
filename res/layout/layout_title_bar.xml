@@ -31,7 +31,7 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:padding="10dp"
-        android:textColor="#772f5e"
+        android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:visibility="gone" />
       <ImageView
