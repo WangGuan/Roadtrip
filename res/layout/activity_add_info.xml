@@ -27,24 +27,6 @@
             android:background="@color/line_color" />
 
         <EditText
-            android:id="@+id/et_name"
-            android:layout_width="fill_parent"
-            android:layout_height="45dp"
-            android:background="@android:color/white"
-            android:gravity="center_vertical"
-            android:hint="用户名"
-            android:paddingLeft="12dp"
-            android:textColor="@color/tips_text_color"
-            android:textSize="14sp" />
-
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1px"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
-            android:background="#CCCCCC" />
-
-        <EditText
             android:id="@+id/et_nickname"
             android:layout_width="fill_parent"
             android:layout_height="45dp"
@@ -62,16 +44,49 @@
             android:layout_marginRight="12dp"
             android:background="#CCCCCC" />
 
-        <EditText
-            android:id="@+id/et_sex"
+        <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="45dp"
-            android:background="@android:color/white"
-            android:gravity="center_vertical"
-            android:hint="性别"
-            android:paddingLeft="12dp"
-            android:textColor="@color/tips_text_color"
-            android:textSize="14sp" />
+            android:background="@android:color/white" >
+
+            <TextView
+                android:id="@+id/tv_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:hint="性别"
+                android:paddingLeft="12dp"
+                android:textColor="@color/tips_text_color"
+                android:textSize="14sp" />
+            
+            <TextView
+                android:id="@+id/tv_female"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:hint="女"
+                android:paddingLeft="12dp"
+                android:textColor="@color/tips_text_color"
+                android:textSize="14sp"
+                android:layout_alignParentRight="true"
+                android:paddingRight="12dp"
+                 android:drawableLeft="@drawable/icon_unselect_circle"
+                android:drawablePadding="8dp" />
+            
+            <TextView
+                android:id="@+id/tv_male"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:hint="男"
+                android:paddingLeft="12dp"
+                android:textColor="@color/tips_text_color"
+                android:textSize="14sp"
+                android:layout_toLeftOf="@id/tv_female"
+                android:layout_marginRight="50dp"
+                android:drawableLeft="@drawable/icon_select_circle"
+                android:drawablePadding="8dp"/>
+        </RelativeLayout>
 
         <View
             android:layout_width="fill_parent"
