@@ -6,9 +6,22 @@
 
     <include layout="@layout/layout_title_bar" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="我的收藏" />
+     <HorizontalScrollView
+        android:id="@+id/hs_tab"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="#ffffff"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/ll_tab_container"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_travel"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
 
 </LinearLayout>
