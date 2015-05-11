@@ -16,6 +16,7 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.froyo.commonjar.activity.BaseActivity;
+import com.froyo.commonjar.adapter.GridItemClickListener;
 import com.froyo.commonjar.utils.AppUtils;
 import com.froyo.commonjar.view.CustomListView;
 import com.froyo.commonjar.view.CustomListView.OnLoadMoreListener;
@@ -305,6 +306,15 @@ public class CollectActivity extends BaseActivity {
 		adapter2 = new CollectPhotoAdapter(data, activity,
 				R.layout.item_collect_photo);
 		page2ListView.setAdapter(adapter2);
+		
+		adapter2.setBackgroundResource(R.drawable.circle_red);
+		adapter2.setOnGridClickListener(new GridItemClickListener() {
+			
+			@Override
+			public void onGridItemClicked(View v, int position, long itemId) {
+				toast(position+"");
+			}
+		});
 
 		page2ListView.setOnRefreshListener(new OnRefreshListener() {
 
