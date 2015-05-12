@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import com.froyo.commonjar.activity.BaseActivity;
 import com.froyo.commonjar.adapter.SimpleAdapter;
 import com.wy.roadtrip.R;
+import com.wy.roadtrip.activity.collect.CollectViewActivity;
 import com.wy.roadtrip.vo.CollectVo;
 
 public class MyCollectAdapter extends SimpleAdapter<CollectVo> {
@@ -25,8 +26,7 @@ public class MyCollectAdapter extends SimpleAdapter<CollectVo> {
 
 			@Override
 			public void onClick(View arg0) {
-				activity.toast("item");
-
+				activity.skip(CollectViewActivity.class);
 			}
 		});
 	}

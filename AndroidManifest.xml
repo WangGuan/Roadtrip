@@ -25,6 +25,9 @@
         
         <activity android:name=".activity.collect.CollectActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
+      
+        <activity android:name=".activity.collect.CollectViewActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         
         <activity android:name=".activity.line.LineActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
