@@ -18,10 +18,30 @@
         android:layout_height="45dp"
         android:background="@android:color/white"
         android:gravity="center_vertical"
-        android:hint="手机号"
+        android:hint="原密码"
         android:paddingLeft="24dp"
         android:textColor="@color/tips_text_color"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:inputType="textPassword" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="#CCCCCC" />
+
+    <EditText
+        android:id="@+id/et_new_pass"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:hint="新密码"
+        android:paddingLeft="24dp"
+        android:textColor="@color/tips_text_color"
+        android:textSize="14sp" 
+         android:inputType="textPassword"/>
 
     <View
         android:layout_width="fill_parent"
@@ -39,7 +59,8 @@
         android:hint="重复密码"
         android:paddingLeft="24dp"
         android:textColor="@color/tips_text_color"
-        android:textSize="14sp" />
+        android:textSize="14sp" 
+         android:inputType="textPassword"/>
 
     <View
         android:layout_width="fill_parent"

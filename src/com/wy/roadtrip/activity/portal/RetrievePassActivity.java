@@ -65,7 +65,6 @@ public class RetrievePassActivity extends BaseActivity {
 				});
 		mQueue.add(req);
 		mQueue.start();
-		
 	}
 	
 	@OnClick(R.id.tv_code)

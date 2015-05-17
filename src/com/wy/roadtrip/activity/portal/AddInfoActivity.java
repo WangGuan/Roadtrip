@@ -17,7 +17,6 @@ import com.froyo.commonjar.network.RespListener;
 import com.froyo.commonjar.utils.Utils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
-import com.lidroid.xutils.view.annotation.event.OnCompoundButtonCheckedChange;
 import com.wy.roadtrip.R;
 import com.wy.roadtrip.componet.TitleBar;
 import com.wy.roadtrip.constant.Const;

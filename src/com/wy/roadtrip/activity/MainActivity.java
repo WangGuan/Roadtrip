@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.SparseArray;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 import com.froyo.commonjar.activity.BaseActivity;
@@ -17,6 +18,7 @@ import com.froyo.commonjar.fragment.BaseFragment;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.wy.roadtrip.R;
+import com.wy.roadtrip.activity.portal.SettingsActivity;
 import com.wy.roadtrip.componet.TitleBar;
 import com.wy.roadtrip.fragment.FragmentGo;
 import com.wy.roadtrip.fragment.FragmentHome;
@@ -55,6 +57,14 @@ public class MainActivity extends BaseActivity {
 	public void doBusiness() {
 		bar = new TitleBar(activity);
 		bar.setTitle("首页");
+		
+		bar.showRightImage(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				skip(SettingsActivity.class);
+			}
+		}, R.drawable.icon_act_active);
 		
 		BaseFragment fragment = new FragmentHome();
 		lastFragment = fragment;

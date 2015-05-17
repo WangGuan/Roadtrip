@@ -71,6 +71,9 @@
         <activity android:name=".activity.portal.ProtocolActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         
+        <activity android:name=".activity.portal.SettingsActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        
     </application>
 
 </manifest>

@@ -18,6 +18,7 @@ public interface Const {
 	
 	/**找回密码*/
 	public static final String  RETRIEVE_PASS=DOMAIN+"index.php?s=/ucenter/app/get_verify";
-	
-	
+
+	/**重置密码*/
+	public static final String  RESET_PASS=DOMAIN+"index.php?s=/ucenter/app/reset_pwd";
 }
