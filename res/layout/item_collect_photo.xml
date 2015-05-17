@@ -16,7 +16,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginRight="8dp"
-        android:background="@drawable/lince_check_box"
+        android:background="@drawable/line_check_box"
         android:button="@null" 
         android:checked="true"/>
 

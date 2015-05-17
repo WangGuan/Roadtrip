@@ -60,7 +60,7 @@
         android:background="#CCCCCC" />
 
     <EditText
-        android:id="@+id/et_phone"
+        android:id="@+id/et_verify"
         android:layout_width="fill_parent"
         android:layout_height="45dp"
         android:background="@android:color/white"
@@ -76,7 +76,7 @@
         android:background="@color/line_color" />
 
     <Button
-        android:id="@+id/btn_next"
+        android:id="@+id/btn_submit"
         android:layout_width="fill_parent"
         android:layout_height="45dp"
         android:layout_marginLeft="12dp"
@@ -84,7 +84,7 @@
         android:layout_marginTop="18dp"
         android:background="@drawable/login_btn_bg"
         android:gravity="center"
-        android:text="下一步"
+        android:text="提交"
         android:textColor="@android:color/white"
         android:textSize="16sp" />
 

@@ -58,34 +58,36 @@
                 android:paddingLeft="12dp"
                 android:textColor="@color/tips_text_color"
                 android:textSize="14sp" />
-            
-            <TextView
-                android:id="@+id/tv_female"
+
+            <CheckBox
+                android:id="@+id/cb_female"
                 android:layout_width="wrap_content"
-                android:layout_height="45dp"
-                android:gravity="center_vertical"
-                android:hint="女"
-                android:paddingLeft="12dp"
-                android:textColor="@color/tips_text_color"
-                android:textSize="14sp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:paddingRight="12dp"
-                 android:drawableLeft="@drawable/icon_unselect_circle"
-                android:drawablePadding="8dp" />
-            
-            <TextView
-                android:id="@+id/tv_male"
-                android:layout_width="wrap_content"
-                android:layout_height="45dp"
-                android:gravity="center_vertical"
-                android:hint="男"
-                android:paddingLeft="12dp"
+                android:button="@drawable/line_check_box"
+                android:text="女"
                 android:textColor="@color/tips_text_color"
-                android:textSize="14sp"
-                android:layout_toLeftOf="@id/tv_female"
+                android:textSize="14sp" 
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+              	  android:paddingLeft="8dp"
+                />
+
+            <CheckBox
+                android:id="@+id/cb_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginRight="50dp"
-                android:drawableLeft="@drawable/icon_select_circle"
-                android:drawablePadding="8dp"/>
+                android:layout_toLeftOf="@id/cb_female"
+                android:button="@drawable/line_check_box"
+                android:gravity="center_vertical"
+                android:text="男"
+                android:textColor="@color/tips_text_color"
+                android:textSize="14sp" 
+                android:layout_centerVertical="true"
+                android:paddingLeft="8dp"
+                android:checked="true"
+                />
         </RelativeLayout>
 
         <View
