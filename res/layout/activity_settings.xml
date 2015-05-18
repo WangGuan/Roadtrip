@@ -91,7 +91,7 @@
         android:background="#CCCCCC" />
 
     <TextView
-        android:id="@+id/et_pass"
+        android:id="@+id/tv_zxing"
         android:layout_width="fill_parent"
         android:layout_height="45dp"
         android:background="@android:color/white"
@@ -190,6 +190,26 @@
         android:drawableRight="@drawable/icon_next"
         android:paddingRight="12dp" />
 
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="#CCCCCC" />
+
+    <ImageView
+        android:id="@+id/et_test"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:background="@android:color/white"
+        android:drawableRight="@drawable/icon_next"
+        android:gravity="center_vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="12dp"
+        android:textColor="@color/settings_text_color"
+        android:textSize="14sp" />
+    
+    
     <Button
         android:id="@+id/btn_exit"
         android:layout_width="fill_parent"
