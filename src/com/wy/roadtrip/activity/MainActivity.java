@@ -3,6 +3,10 @@ package com.wy.roadtrip.activity;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -20,6 +24,7 @@ import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.wy.roadtrip.R;
 import com.wy.roadtrip.activity.portal.SettingsActivity;
 import com.wy.roadtrip.componet.TitleBar;
+import com.wy.roadtrip.constant.Const;
 import com.wy.roadtrip.fragment.FragmentGo;
 import com.wy.roadtrip.fragment.FragmentHome;
 import com.wy.roadtrip.fragment.FragmentInfo;
@@ -48,7 +53,7 @@ public class MainActivity extends BaseActivity {
 
 	private List<TextView> tvList = new ArrayList<TextView>();
 	TitleBar bar = null;
-	
+
 	private SparseArray<Fragment> fragContainer = new SparseArray<Fragment>();
 
 	private static BaseFragment lastFragment;
@@ -57,15 +62,15 @@ public class MainActivity extends BaseActivity {
 	public void doBusiness() {
 		bar = new TitleBar(activity);
 		bar.setTitle("首页");
-		
+
 		bar.showRightImage(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				skip(SettingsActivity.class);
 			}
 		}, R.drawable.icon_act_active);
-		
+
 		BaseFragment fragment = new FragmentHome();
 		lastFragment = fragment;
 		FragmentTransaction fragmentTransaction = getSupportFragmentManager()
@@ -73,13 +78,14 @@ public class MainActivity extends BaseActivity {
 		fragmentTransaction.replace(R.id.fl_content, fragment);
 		fragContainer.put(0, fragment);
 		fragmentTransaction.commit();
-		
-		
+
 		tvList.add(tvHome);
 		tvList.add(tvGo);
 		tvList.add(tvMap);
 		tvList.add(tvInfo);
 		changeBtnBg(0);
+
+		startUploadLocal();
 	}
 
 	@OnClick(R.id.tv_home)
@@ -101,8 +107,6 @@ public class MainActivity extends BaseActivity {
 	void info(View view) {
 		changeBtnBg(3);
 	}
-
-
 
 	private void changeBtnBg(int position) {
 		for (int i = 0; i < tvList.size(); i++) {
@@ -174,7 +178,7 @@ public class MainActivity extends BaseActivity {
 		}
 		switchFragment(position);
 	}
-	
+
 	public void switchFragment(int position) {
 		Fragment fragment = null;
 		if (position == 0) {
@@ -222,12 +226,27 @@ public class MainActivity extends BaseActivity {
 		}
 	}
 
+	/**
+	 * 
+	 * @Des:启动上传车队位置信息定时器
+	 * @param
+	 * @return void
+	 */
+	private void startUploadLocal() {
+		Intent intent = new Intent(Const.ACTION_UPLOAD_CAR_LOCAL);
+		PendingIntent sendIntent = PendingIntent.getBroadcast(activity, 0,
+				intent, PendingIntent.FLAG_UPDATE_CURRENT);
+		AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+		am.cancel(sendIntent);
+		am.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),
+				60 * 1000, sendIntent);
+	}
 
 	@Override
 	protected int setLayoutResID() {
 		return R.layout.activity_main;
 	}
-	
+
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 

@@ -7,12 +7,27 @@
         android:minSdkVersion="14"
         android:targetSdkVersion="18" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/NoTitleBar" >
-        <activity android:name=".activity.MainActivity"
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="06a66acff13cc9fe72e5e02fd88b6e62" />
+
+        <activity
+            android:name=".activity.MainActivity"
             android:launchMode="singleInstance" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,60 +35,66 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.car.CarTeamActivity"
+        <activity
+            android:name=".activity.car.CarTeamActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        
-        <activity android:name=".activity.collect.CollectActivity"
+        <activity
+            android:name=".activity.collect.CollectActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-      
-        <activity android:name=".activity.collect.CollectViewActivity"
+        <activity
+            android:name=".activity.collect.CollectViewActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        
-        <activity android:name=".activity.line.LineActivity"
+        <activity
+            android:name=".activity.line.LineActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-
-        <activity android:name=".activity.line.LinePreviewActivity"
+        <activity
+            android:name=".activity.line.LinePreviewActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-
-        <activity android:name=".activity.line.LineEditActivity"
+        <activity
+            android:name=".activity.line.LineEditActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        
-        <activity android:name=".activity.map.OfflineMapActivity"
+        <activity
+            android:name=".activity.map.OfflineMapActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        
-        <activity android:name=".activity.menu.MenuActivity"
+        <activity
+            android:name=".activity.menu.MenuActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        
-        <activity android:name=".activity.mystyle.MystyleActivity"
+        <activity
+            android:name=".activity.mystyle.MystyleActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-
-        <activity android:name=".activity.order.OrderActivity"
+        <activity
+            android:name=".activity.order.OrderActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        
-        <activity android:name=".activity.photo.PhotoActivity"
+        <activity
+            android:name=".activity.photo.PhotoActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        
-        <activity android:name=".activity.portal.LoginActivity"
+        <activity
+            android:name=".activity.portal.LoginActivity"
             android:windowSoftInputMode="stateHidden" />
-        
-        <activity android:name=".activity.portal.RegisterActivity"
+        <activity
+            android:name=".activity.portal.RegisterActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activity.portal.RetrievePassActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activity.portal.ResetPassActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activity.portal.AddInfoActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activity.portal.ProtocolActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activity.portal.SettingsActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
-        <activity android:name=".activity.portal.RetrievePassActivity"
-            android:windowSoftInputMode="adjustResize|stateHidden" />
-        
-        <activity android:name=".activity.portal.ResetPassActivity"
-            android:windowSoftInputMode="adjustResize|stateHidden" />
-       
-        <activity android:name=".activity.portal.AddInfoActivity"
-            android:windowSoftInputMode="adjustResize|stateHidden" />
-
-        <activity android:name=".activity.portal.ProtocolActivity"
-            android:windowSoftInputMode="adjustResize|stateHidden" />
-        
-        <activity android:name=".activity.portal.SettingsActivity"
-            android:windowSoftInputMode="adjustResize|stateHidden" />
-        
+        <receiver android:name="com.wy.roadtrip.receiver.UploadLocalReceiver" >
+            <intent-filter android:priority="1000" >
+                <action android:name="com.wy.roadtrip.upload_car_local" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

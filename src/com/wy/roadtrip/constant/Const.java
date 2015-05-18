@@ -21,4 +21,16 @@ public interface Const {
 
 	/**重置密码*/
 	public static final String  RESET_PASS=DOMAIN+"index.php?s=/ucenter/app/reset_pwd";
+
+	/**保存需要上传车队地理位置的车队ID*/
+	public static final String  CAR_TEAM_ID="car_team_id";
+
+	/**上传车队地理位置action*/
+	public static final String  ACTION_UPLOAD_CAR_LOCAL="com.wy.roadtrip.upload_car_local";
+	
+	
+	
+	
+	
+	
 }
