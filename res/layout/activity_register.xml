@@ -86,7 +86,8 @@
         android:hint="输入密码"
         android:paddingLeft="24dp"
         android:textColor="@color/tips_text_color"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:inputType="textPassword" />
 
     <View
         android:layout_width="fill_parent"
@@ -104,7 +105,8 @@
         android:hint="再次输入密码"
         android:paddingLeft="24dp"
         android:textColor="@color/tips_text_color"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:inputType="textPassword" />
 
     <View
         android:layout_width="fill_parent"

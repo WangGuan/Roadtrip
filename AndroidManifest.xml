@@ -89,6 +89,9 @@
             android:name=".activity.portal.ResetPassActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
+            android:name=".activity.portal.SetPassActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
             android:name=".activity.portal.AddInfoActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity

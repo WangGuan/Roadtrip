@@ -18,14 +18,13 @@ import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.wy.roadtrip.R;
 import com.wy.roadtrip.componet.TitleBar;
 import com.wy.roadtrip.constant.Const;
-import com.wy.roadtrip.utils.SimpleUtils;
 import com.wy.roadtrip.vo.ResponseVo;
 /**
- * 修改密码
+ * 重新设置密码
  * @author wangyi
  *
  */
-public class ResetPassActivity extends BaseActivity {
+public class SetPassActivity extends BaseActivity {
 
 	@ViewInject(R.id.et_pass)
 	private EditText et_pass;
@@ -35,12 +34,18 @@ public class ResetPassActivity extends BaseActivity {
 	
 	@ViewInject(R.id.et_repass)
 	private EditText et_repass;
-
+	
+	private String phone;
+	
+	private String verify;
+	
 	@Override
 	public void doBusiness() {
 		TitleBar bar=new TitleBar(activity);
 		bar.showBack();
-		bar.setTitle("修改密码");
+		bar.setTitle("重置密码");
+		phone=(String) getVo("0");
+		verify=(String) getVo("1");
 	}
 	
 	@OnClick(R.id.btn_submit)
@@ -66,15 +71,16 @@ public class ResetPassActivity extends BaseActivity {
 		showDialog();
 		RequestQueue mQueue = Volley.newRequestQueue(this);
 		PostParams params = new PostParams();
-		params.put("old_password", et_pass.getText().toString().trim());
 		params.put("password", et_repass.getText().toString());
 		params.put("password2", et_repass.getText().toString());
-		PostRequest req = new PostRequest(activity, params, SimpleUtils.buildUrl(activity, Const.ALTER_PASS),
+		params.put("mobile", phone);
+		params.put("verify_code", verify);
+		PostRequest req = new PostRequest(activity, params, Const.RESET_PASS,
 				new RespListener(activity) {
 
 					@Override
 					public void getResp(JSONObject obj) {
-						ResponseVo vo=GsonTools.getVo(obj.toString(), ResponseVo.class);
+						ResponseVo vo=	GsonTools.getVo(obj.toString(), ResponseVo.class);
 						toast(vo.getMsg());
 					}
 				});
