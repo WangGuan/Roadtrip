@@ -11,8 +11,10 @@ import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.wy.roadtrip.R;
 import com.wy.roadtrip.activity.car.CarTeamActivity;
 import com.wy.roadtrip.activity.collect.CollectActivity;
+import com.wy.roadtrip.activity.line.LineActivity;
 import com.wy.roadtrip.activity.map.OfflineMapActivity;
 import com.wy.roadtrip.activity.menu.MenuActivity;
+import com.wy.roadtrip.activity.mystyle.MyMsgActivity;
 import com.wy.roadtrip.activity.mystyle.MystyleActivity;
 import com.wy.roadtrip.activity.photo.PhotoActivity;
 import com.wy.roadtrip.activity.portal.LoginActivity;
@@ -39,10 +41,14 @@ public class FragmentHome extends BaseFragment {
            tips.toggle();
 	}
 	
+	@OnClick(R.id.tv_msg)
+	void showMsg(View view){
+		activity.skip(MyMsgActivity.class);
+	}
+	
 	@OnClick(R.id.rl_line)
 	void line(View view) {
-//		activity.skip(LineActivity.class);
-		activity.skip(LoginActivity.class);
+		activity.skip(LineActivity.class);
 	}
 
 	@OnClick(R.id.rl_collect)

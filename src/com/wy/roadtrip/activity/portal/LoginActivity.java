@@ -15,6 +15,7 @@ import com.froyo.commonjar.utils.Utils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.wy.roadtrip.R;
+import com.wy.roadtrip.activity.MainActivity;
 import com.wy.roadtrip.componet.TitleBar;
 import com.wy.roadtrip.constant.Const;
 
@@ -56,12 +57,12 @@ public class LoginActivity extends BaseActivity {
 		PostParams params = new PostParams();
 		params.put("username", et_name.getText().toString());
 		params.put("password", et_pass.getText().toString());
-		PostRequest req = new PostRequest(activity, params, Const.DOMAIN,
+		PostRequest req = new PostRequest(activity, params, Const.LOGIN,
 				new RespListener(activity) {
 
 					@Override
 					public void getResp(JSONObject obj) {
-						
+						activity.skip(LoginActivity.class);
 					}
 				});
 		mQueue.add(req);
@@ -78,6 +79,11 @@ public class LoginActivity extends BaseActivity {
 		skip(RetrievePassActivity.class);
 	}
 
+	@OnClick(R.id.iv_weixin)
+	void weixinLogin(View view){
+		skip(MainActivity.class);
+		finish();
+	}
 	@Override
 	protected int setLayoutResID() {
 		return R.layout.activity_login;

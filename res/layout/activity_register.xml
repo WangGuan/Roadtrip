@@ -143,9 +143,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/register_check_box"
-            android:button="@null"
+            android:button="@drawable/register_check_box"
             android:checked="true"
+            android:padding="12dp"
             android:layout_marginLeft="12dp"
             />
 
@@ -154,10 +154,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="6dp"
             android:text="我已阅读并同意"
             android:textColor="@color/tips_text_color"
-            android:textSize="12sp" />
+            android:textSize="12sp" 
+            android:layout_marginLeft="-12dp"/>
 
         <TextView
             android:id="@+id/tv_protocol"

@@ -67,7 +67,6 @@ public class RegisterActivity extends BaseActivity {
 
 	@OnClick(R.id.btn_submit)
 	void submit(View view) {
-//		 skip(AddInfoActivity.class);
 		if (!Utils.isMobileNum(et_phone.getText().toString().trim())) {
 			toast("请输入正确的手机号");
 			return;
@@ -112,7 +111,12 @@ public class RegisterActivity extends BaseActivity {
 					@Override
 					public void getResp(JSONObject obj) {
 						ResponseVo vo=GsonTools.getVo(obj.toString(), ResponseVo.class);
-						toast(vo.getMsg());
+						if(vo.isSucess()){
+							 skip(AddInfoActivity.class);
+						}else{
+							toast(vo.getMsg());
+						}
+						
 					}
 				});	
 		

@@ -37,11 +37,6 @@
         <activity
             android:name=".activity.MainActivity"
             android:launchMode="singleInstance" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activity.car.CarTeamActivity"
@@ -71,6 +66,12 @@
             android:name=".activity.mystyle.MystyleActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
+            android:name=".activity.mystyle.MyMsgActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".activity.mystyle.MsgDetailActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
             android:name=".activity.order.OrderActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
@@ -78,7 +79,13 @@
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".activity.portal.LoginActivity"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden" >
+               <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity.portal.RegisterActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />

@@ -34,8 +34,11 @@ public interface Const {
 	/**用户登录auth*/
 	public static final String AUTH="com.wy.roadtrip.auth";
 	
+	public static final int REQUEST_CODE_IMAGE_CAPTURE = 0;
 	
+	public static final int REQUEST_CODE_IMAGE_SELECTE = 1;
 	
+	public static final int REQUEST_CODE_IMAGE_CROP = 2;
 	
 	
 }

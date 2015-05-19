@@ -22,36 +22,36 @@ import com.wy.roadtrip.R;
 import com.wy.roadtrip.componet.TitleBar;
 import com.wy.roadtrip.constant.Const;
 import com.wy.roadtrip.vo.ResponseVo;
+
 /**
  * 找回密码
+ * 
  * @author wangyi
  *
  */
 public class RetrievePassActivity extends BaseActivity {
 
-	
 	@ViewInject(R.id.et_verify)
 	private EditText et_verify;
 
 	@ViewInject(R.id.et_phone)
 	private EditText et_phone;
-	
+
 	@ViewInject(R.id.tv_code)
 	private TextView tv_code;
-	
+
 	private TimeCount time;
-	
+
 	@Override
 	public void doBusiness() {
-		TitleBar bar=new TitleBar(activity);
+		TitleBar bar = new TitleBar(activity);
 		bar.showBack();
 		bar.setTitle("找回密码");
 		time = new TimeCount(60000, 1000);
 	}
-	
-	
+
 	@OnClick(R.id.btn_submit)
-	void next(View view){
+	void next(View view) {
 		if (Utils.isEmpty(et_phone.getText().toString())) {
 			toast("请填写手机号");
 			return;
@@ -60,11 +60,12 @@ public class RetrievePassActivity extends BaseActivity {
 			toast("请填写验证码");
 			return;
 		}
-		skip(SetPassActivity.class,et_phone.getText().toString(),et_verify.getText().toString());
+		skip(SetPassActivity.class, et_phone.getText().toString(), et_verify
+				.getText().toString());
 	}
-	
+
 	@OnClick(R.id.tv_code)
-	void getVerifyCode(View view){
+	void getVerifyCode(View view) {
 		if (!Utils.isMobileNum(et_phone.getText().toString())) {
 			toast("请填写正确手机号");
 			return;
@@ -79,14 +80,15 @@ public class RetrievePassActivity extends BaseActivity {
 
 					@Override
 					public void getResp(JSONObject obj) {
-						ResponseVo vo=GsonTools.getVo(obj.toString(), ResponseVo.class);
+						ResponseVo vo = GsonTools.getVo(obj.toString(),
+								ResponseVo.class);
 						toast(vo.getMsg());
 					}
 				});
 		mQueue.add(req);
 		mQueue.start();
 	}
-	
+
 	class TimeCount extends CountDownTimer {
 
 		public TimeCount(long millisInFuture, long countDownInterval) {
@@ -107,7 +109,7 @@ public class RetrievePassActivity extends BaseActivity {
 			tv_code.setTextColor(Color.parseColor("#50BBDB"));
 		}
 	}
-	
+
 	@Override
 	protected int setLayoutResID() {
 		return R.layout.activity_retrieve_pass;
