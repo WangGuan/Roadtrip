@@ -111,6 +111,7 @@ public class RegisterActivity extends BaseActivity {
 					@Override
 					public void getResp(JSONObject obj) {
 						ResponseVo vo=GsonTools.getVo(obj.toString(), ResponseVo.class);
+						System.out.println("ob2:"+obj);
 						if(vo.isSucess()){
 							 skip(AddInfoActivity.class);
 						}else{
@@ -142,6 +143,7 @@ public class RegisterActivity extends BaseActivity {
 					public void getResp(JSONObject obj) {
 						ResponseVo vo=GsonTools.getVo(obj.toString(), ResponseVo.class);
 						toast(vo.getMsg());
+						System.out.println("ob1:"+obj);
 					}
 				});
 		mQueue.add(req);

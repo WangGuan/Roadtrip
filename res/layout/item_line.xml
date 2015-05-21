@@ -41,8 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/line_check_box"
-            android:button="@null"
+            android:button="@drawable/line_check_box"
             android:checked="false"
             android:visibility="gone" />
     </RelativeLayout>
