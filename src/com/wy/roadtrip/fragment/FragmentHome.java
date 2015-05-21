@@ -17,7 +17,7 @@ import com.wy.roadtrip.activity.menu.MenuActivity;
 import com.wy.roadtrip.activity.mystyle.MyMsgActivity;
 import com.wy.roadtrip.activity.mystyle.MystyleActivity;
 import com.wy.roadtrip.activity.photo.PhotoActivity;
-import com.wy.roadtrip.activity.portal.LoginActivity;
+import com.wy.roadtrip.activity.portal.AddInfoActivity;
 
 /**
  * 
@@ -27,7 +27,6 @@ import com.wy.roadtrip.activity.portal.LoginActivity;
  * @created  2015年5月6日 上午11:43:54
  */
 public class FragmentHome extends BaseFragment {
-
 	
 	@ViewInject(R.id.tv_msg)
 	private TextView tv_msg;
@@ -48,7 +47,8 @@ public class FragmentHome extends BaseFragment {
 	
 	@OnClick(R.id.rl_line)
 	void line(View view) {
-		activity.skip(LineActivity.class);
+//		activity.skip(LineActivity.class);
+		activity.skip(AddInfoActivity.class);
 	}
 
 	@OnClick(R.id.rl_collect)

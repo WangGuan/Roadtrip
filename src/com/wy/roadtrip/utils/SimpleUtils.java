@@ -19,7 +19,7 @@ public class SimpleUtils {
 		if(!isLogin(activity)){
 			return "";
 		}
-		return url+"&auth="+sp.getStringValue(Const.AUTH);
+		return url+"&auth="+sp.getStringValue(Const.AUTH)+"&uid="+sp.getStringValue(Const.UID);
 	}
 	
 	public static boolean isLogin(BaseActivity activity){

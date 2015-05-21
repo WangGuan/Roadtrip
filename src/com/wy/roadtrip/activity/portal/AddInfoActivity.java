@@ -4,6 +4,7 @@ import java.io.File;
 
 import org.json.JSONObject;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -160,7 +161,7 @@ public class AddInfoActivity extends BaseActivity {
 		try {
 			super.onActivityResult(requestCode, resultCode, data);
 			// ==========摄像头===========
-			if (requestCode == Const.REQUEST_CODE_IMAGE_CAPTURE) {
+			if (requestCode == Const.REQUEST_CODE_IMAGE_CAPTURE&&resultCode==Activity.RESULT_OK) {
 				if (mCurrentPhotoFile != null) {
 					// 方法1：读取缓存图片
 					startPhotoZoom(Uri.fromFile(mCurrentPhotoFile));

@@ -28,6 +28,18 @@ public interface Const {
 	/**上传车队地理位置action*/
 	public static final String  ACTION_UPLOAD_CAR_LOCAL="com.wy.roadtrip.upload_car_local";
 	
+	/**我的收藏-看点列表*/
+	public static final String COLLECT_VIEW=DOMAIN+"index.php?s=/favorite/app/fav_focus_list";
+	
+	/**我的收藏-私享列表*/
+	public static final String COLLECT_SHARE=DOMAIN+"index.php?s=/favorite/app/fav_own_share_list";
+	
+	/**我的收藏-照片列表*/
+	public static final String COLLECT_PIC=DOMAIN+"index.php?s=/favorite/app/fav_pic_list";
+	
+	/**我的收藏-线路列表*/
+	public static final String COLLECT_ROUTE=DOMAIN+"/index.php?s=/favorite/app/fav_route_list";
+
 	/**用户登录id*/
 	public static final String UID="com.wy.roadtrip.uid";
 	
@@ -39,6 +51,4 @@ public interface Const {
 	public static final int REQUEST_CODE_IMAGE_SELECTE = 1;
 	
 	public static final int REQUEST_CODE_IMAGE_CROP = 2;
-	
-	
 }

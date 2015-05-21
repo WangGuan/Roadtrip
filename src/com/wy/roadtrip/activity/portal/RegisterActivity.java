@@ -116,8 +116,10 @@ public class RegisterActivity extends BaseActivity {
 						if(vo.isSucess()){
 							try {
 								String auth=obj.getJSONObject("data").getString("auth");
+								String uid=obj.getJSONObject("data").getJSONObject("userinfo").getString("uid");
 								SpUtil sp=new SpUtil(activity);
 								sp.setValue(Const.AUTH, auth);
+								sp.setValue(Const.UID, uid);
 								skip(AddInfoActivity.class);
 							} catch (JSONException e) {
 								e.printStackTrace();

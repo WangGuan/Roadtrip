@@ -70,10 +70,11 @@ public class LoginActivity extends BaseActivity {
 						ResponseVo vo=GsonTools.getVo(obj.toString(), ResponseVo.class);
 						if(vo.isSucess()){
 							try {
-								
 								String auth=obj.getJSONObject("data").getString("auth");
+								String uid=obj.getJSONObject("data").getJSONObject("userinfo").getString("uid");
 								SpUtil sp=new SpUtil(activity);
 								sp.setValue(Const.AUTH, auth);
+								sp.setValue(Const.UID, uid);
 								skip(MainActivity.class);
 							} catch (JSONException e) {
 								e.printStackTrace();
