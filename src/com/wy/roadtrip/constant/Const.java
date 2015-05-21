@@ -14,7 +14,7 @@ public interface Const {
 	public static final String REGISTER=DOMAIN+"index.php?s=/ucenter/app/register";
 
 	/**注册之后补充信息*/
-	public static final String  SUPPLY_INFO=DOMAIN+"index.php?s=/ucenter/app/register";
+	public static final String  SUPPLY_INFO=DOMAIN+"index.php?s=/ucenter/app/save_info";
 	
 	/**重置密码*/
 	public static final String  RESET_PASS=DOMAIN+"index.php?s=/ucenter/app/reset_pwd";

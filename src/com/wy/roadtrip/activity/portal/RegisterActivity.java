@@ -1,5 +1,6 @@
 package com.wy.roadtrip.activity.portal;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.graphics.Color;
@@ -16,6 +17,7 @@ import com.froyo.commonjar.network.PostParams;
 import com.froyo.commonjar.network.PostRequest;
 import com.froyo.commonjar.network.RespListener;
 import com.froyo.commonjar.utils.GsonTools;
+import com.froyo.commonjar.utils.SpUtil;
 import com.froyo.commonjar.utils.Utils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
@@ -111,9 +113,16 @@ public class RegisterActivity extends BaseActivity {
 					@Override
 					public void getResp(JSONObject obj) {
 						ResponseVo vo=GsonTools.getVo(obj.toString(), ResponseVo.class);
-						System.out.println("ob2:"+obj);
 						if(vo.isSucess()){
-							 skip(AddInfoActivity.class);
+							try {
+								String auth=obj.getJSONObject("data").getString("auth");
+								SpUtil sp=new SpUtil(activity);
+								sp.setValue(Const.AUTH, auth);
+								skip(AddInfoActivity.class);
+							} catch (JSONException e) {
+								e.printStackTrace();
+							}
+							
 						}else{
 							toast(vo.getMsg());
 						}

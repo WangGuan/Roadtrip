@@ -1,5 +1,6 @@
 package com.wy.roadtrip.activity.portal;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.view.View;
@@ -11,6 +12,8 @@ import com.froyo.commonjar.activity.BaseActivity;
 import com.froyo.commonjar.network.PostParams;
 import com.froyo.commonjar.network.PostRequest;
 import com.froyo.commonjar.network.RespListener;
+import com.froyo.commonjar.utils.GsonTools;
+import com.froyo.commonjar.utils.SpUtil;
 import com.froyo.commonjar.utils.Utils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
@@ -18,6 +21,7 @@ import com.wy.roadtrip.R;
 import com.wy.roadtrip.activity.MainActivity;
 import com.wy.roadtrip.componet.TitleBar;
 import com.wy.roadtrip.constant.Const;
+import com.wy.roadtrip.vo.ResponseVo;
 
 /**
  * 
@@ -62,7 +66,21 @@ public class LoginActivity extends BaseActivity {
 
 					@Override
 					public void getResp(JSONObject obj) {
-						activity.skip(LoginActivity.class);
+
+						ResponseVo vo=GsonTools.getVo(obj.toString(), ResponseVo.class);
+						if(vo.isSucess()){
+							try {
+								
+								String auth=obj.getJSONObject("data").getString("auth");
+								SpUtil sp=new SpUtil(activity);
+								sp.setValue(Const.AUTH, auth);
+								skip(MainActivity.class);
+							} catch (JSONException e) {
+								e.printStackTrace();
+							}
+						}else{
+							toast(vo.getMsg());
+						}
 					}
 				});
 		mQueue.add(req);

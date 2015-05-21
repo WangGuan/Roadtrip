@@ -31,6 +31,7 @@ import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.wy.roadtrip.R;
 import com.wy.roadtrip.componet.TitleBar;
 import com.wy.roadtrip.constant.Const;
+import com.wy.roadtrip.utils.SimpleUtils;
 
 /**
  * 注册第二步，设置个人信息
@@ -105,12 +106,12 @@ public class AddInfoActivity extends BaseActivity {
 			params.put("sex", "1");
 		}
 
-		PostRequest req = new PostRequest(activity, params, Const.SUPPLY_INFO,
+		PostRequest req = new PostRequest(activity, params, SimpleUtils.buildUrl(activity, Const.SUPPLY_INFO),
 				new RespListener(activity) {
 
 					@Override
 					public void getResp(JSONObject obj) {
-
+						System.out.println("xx:"+obj);
 					}
 				});
 		mQueue.add(req);
@@ -185,7 +186,7 @@ public class AddInfoActivity extends BaseActivity {
 	}
 
 	private void doUpLoadAvator() {
-		toast("执行上传头像功能");
+		
 	}
 
 	/** 缩放拍摄图片 */
