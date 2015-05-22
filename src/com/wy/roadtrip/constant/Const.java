@@ -2,7 +2,7 @@ package com.wy.roadtrip.constant;
 
 public interface Const {
 	
-	public static final String DOMAIN="http://106.39.56.134/opencenter/";
+	public static final String DOMAIN="http://121.40.224.43/opencenter/";
 	
 	/**登录*/
 	public static final String LOGIN=DOMAIN+"index.php?s=/ucenter/app/login";

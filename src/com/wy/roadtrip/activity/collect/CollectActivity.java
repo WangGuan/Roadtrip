@@ -3,6 +3,8 @@ package com.wy.roadtrip.activity.collect;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONObject;
+
 import android.graphics.Color;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -10,13 +12,19 @@ import android.util.SparseArray;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.BaseAdapter;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.froyo.commonjar.activity.BaseActivity;
 import com.froyo.commonjar.adapter.GridItemClickListener;
+import com.froyo.commonjar.network.PostParams;
+import com.froyo.commonjar.network.PostRequest;
+import com.froyo.commonjar.network.RespListener;
 import com.froyo.commonjar.utils.AppUtils;
 import com.froyo.commonjar.view.CustomListView;
 import com.froyo.commonjar.view.CustomListView.OnLoadMoreListener;
@@ -27,6 +35,8 @@ import com.wy.roadtrip.adapter.CollectPhotoAdapter;
 import com.wy.roadtrip.adapter.FindPagerAdapter;
 import com.wy.roadtrip.adapter.MyCollectAdapter;
 import com.wy.roadtrip.componet.TitleBar;
+import com.wy.roadtrip.constant.Const;
+import com.wy.roadtrip.utils.SimpleUtils;
 import com.wy.roadtrip.vo.CollectPhotoVo;
 import com.wy.roadtrip.vo.CollectVo;
 
@@ -55,15 +65,20 @@ public class CollectActivity extends BaseActivity {
 	public int currentIndex = 0;
 
 	private CustomListView page1ListView;
+	private int pageNum1=1;
+	private int pageNum2=1;
+	private int pageNum3=1;
+	private int pageNum4=1;
+	
 	private CustomListView page2ListView;
 
 	private MyCollectAdapter adapter1;
 
 	private CollectPhotoAdapter adapter2;
 
-	/**保存页面来回切换时，标题栏的状态，以及标题文字和对应的处理事件*/
+	/** 保存页面来回切换时，标题栏的状态，以及标题文字和对应的处理事件 */
 	private SparseArray<OnClickListener> map = new SparseArray<OnClickListener>();
-	
+
 	private SparseArray<String> titleMap = new SparseArray<String>();
 
 	TitleBar bar;
@@ -270,19 +285,16 @@ public class CollectActivity extends BaseActivity {
 
 	private void initPage1(View view) {
 		page1ListView = (CustomListView) view.findViewById(R.id.lv_page_list);
-		List<CollectVo> data = new ArrayList<CollectVo>();
-		data.add(new CollectVo());
-		data.add(new CollectVo());
-		data.add(new CollectVo());
-		data.add(new CollectVo());
-		adapter1 = new MyCollectAdapter(data, activity, R.layout.item_collect);
+		adapter1 = new MyCollectAdapter(new ArrayList<CollectVo>(), activity,
+				R.layout.item_collect);
 		page1ListView.setAdapter(adapter1);
 
 		page1ListView.setOnRefreshListener(new OnRefreshListener() {
 
 			@Override
 			public void onRefresh() {
-
+				pullRefresh(page1ListView, adapter1, 1,
+						SimpleUtils.buildUrl(activity, Const.COLLECT_VIEW));
 			}
 		});
 
@@ -306,13 +318,13 @@ public class CollectActivity extends BaseActivity {
 		adapter2 = new CollectPhotoAdapter(data, activity,
 				R.layout.item_collect_photo);
 		page2ListView.setAdapter(adapter2);
-		
+
 		adapter2.setBackgroundResource(R.drawable.circle_red);
 		adapter2.setOnGridClickListener(new GridItemClickListener() {
-			
+
 			@Override
 			public void onGridItemClicked(View v, int position, long itemId) {
-				toast(position+"");
+				toast(position + "");
 			}
 		});
 
@@ -332,6 +344,38 @@ public class CollectActivity extends BaseActivity {
 				// listView.setAutoLoadMore(false);(加载更多失败，变为手动加载调用)--（手动加载更多成功应该恢复到自动加载listView.setAutoLoadMore(true)）
 			}
 		});
+	}
+
+	private void pullRefresh(final CustomListView listView,
+			BaseAdapter adapter, final int pageOrder, String url) {
+		RequestQueue mQueue = Volley.newRequestQueue(this);
+		PostParams params = new PostParams();
+		PostRequest req = new PostRequest(activity, params, url,
+				new RespListener(activity) {
+
+					@Override
+					public void getResp(JSONObject obj) {
+						if(pageOrder==1){
+							
+						}else if(pageOrder==2){
+							
+						}else if(pageOrder==3){
+							
+						}else{
+							
+						}
+						
+						
+						listView.onRefreshComplete();
+					}
+
+					@Override
+					public void doFailed() {
+						listView.onRefreshComplete();
+					}
+				});
+		mQueue.add(req);
+		mQueue.start();
 	}
 
 	@Override
