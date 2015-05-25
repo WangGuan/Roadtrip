@@ -350,21 +350,31 @@ public class CollectActivity extends BaseActivity {
 			BaseAdapter adapter, final int pageOrder, String url) {
 		RequestQueue mQueue = Volley.newRequestQueue(this);
 		PostParams params = new PostParams();
+		params.put("pageIndex", "1");
 		PostRequest req = new PostRequest(activity, params, url,
 				new RespListener(activity) {
 
 					@Override
 					public void getResp(JSONObject obj) {
 						if(pageOrder==1){
-							
+							pageNum1=1;
+							pageNum1++;
 						}else if(pageOrder==2){
-							
+							pageNum2=2;
+							pageNum2++;
 						}else if(pageOrder==3){
-							
+							pageNum3=3;
+							pageNum3++;
 						}else{
-							
+							pageNum4=4;
+							pageNum4++;
 						}
-						
+						//无更多数据可加载
+//						if（无更多数据可加载）{
+//							listView.setHasNoMoreData();
+//						}else{
+//							listView.setAutoLoadMore(true);
+//						}
 						
 						listView.onRefreshComplete();
 					}
@@ -378,6 +388,42 @@ public class CollectActivity extends BaseActivity {
 		mQueue.start();
 	}
 
+	private void loadMore(final CustomListView listView,
+			BaseAdapter adapter, final int pageOrder, String url,int pageNum) {
+		RequestQueue mQueue = Volley.newRequestQueue(this);
+		PostParams params = new PostParams();
+		params.put("pageIndex", pageNum+"");
+		PostRequest req = new PostRequest(activity, params, url,
+				new RespListener(activity) {
+
+					@Override
+					public void getResp(JSONObject obj) {
+						if(pageOrder==1){
+							pageNum1++;
+						}else if(pageOrder==2){
+							pageNum2++;
+						}else if(pageOrder==3){
+							pageNum3++;
+						}else{
+							pageNum4++;
+						}
+						
+						//无更多数据可加载
+//						if（无更多数据可加载）{
+//							listView.setHasNoMoreData();
+//						}
+						listView.onLoadMoreComplete();
+					}
+
+					@Override
+					public void doFailed() {
+						listView.onLoadMoreComplete();
+						listView.setAutoLoadMore(false);
+					}
+				});
+		mQueue.add(req);
+		mQueue.start();
+	}
 	@Override
 	protected int setLayoutResID() {
 		return R.layout.activity_collect;
