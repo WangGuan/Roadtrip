@@ -76,6 +76,7 @@ public class LoginActivity extends BaseActivity {
 								sp.setValue(Const.AUTH, auth);
 								sp.setValue(Const.UID, uid);
 								skip(MainActivity.class);
+								finish();
 							} catch (JSONException e) {
 								e.printStackTrace();
 							}

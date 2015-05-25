@@ -32,10 +32,11 @@
             android:layout_height="45dp"
             android:background="@android:color/white"
             android:gravity="center_vertical"
-            android:hint="手机号/邮箱"
+            android:hint="手机号"
             android:paddingLeft="12dp"
             android:textColor="@color/tips_text_color"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:text="frank5" />
 
         <View
             android:layout_width="fill_parent"
@@ -54,7 +55,8 @@
             android:paddingLeft="12dp"
             android:textColor="@color/tips_text_color"
             android:textSize="14sp"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:text="111111" />
 
         <View
             android:layout_width="fill_parent"

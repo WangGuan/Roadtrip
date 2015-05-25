@@ -12,9 +12,14 @@ import com.wy.roadtrip.R;
 import com.wy.roadtrip.activity.collect.CollectViewActivity;
 import com.wy.roadtrip.vo.CollectVo;
 
-public class MyCollectAdapter extends SimpleAdapter<CollectVo> {
+/**
+ * 我的收藏--看点，私享
+ * @author wangyi
+ *
+ */
+public class MyCollectViewAdapter extends SimpleAdapter<CollectVo> {
 
-	public MyCollectAdapter(List<CollectVo> data, BaseActivity activity,
+	public MyCollectViewAdapter(List<CollectVo> data, BaseActivity activity,
 			int layoutId) {
 		super(data, activity, layoutId, ViewHolder.class, R.id.class);
 	}
