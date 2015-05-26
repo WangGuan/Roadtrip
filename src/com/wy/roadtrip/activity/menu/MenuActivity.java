@@ -17,7 +17,7 @@ public class MenuActivity extends BaseActivity {
 	public void doBusiness() {
 		TitleBar bar =new TitleBar(activity);
 		bar.showBack();
-		bar.setTitle("我的菜单");
+		bar.setTitle("我的订单");
 	}
 	
 	@Override
