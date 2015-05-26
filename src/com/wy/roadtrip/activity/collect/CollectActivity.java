@@ -363,7 +363,7 @@ public class CollectActivity extends BaseActivity {
 		page3ListView = (CustomListView) view.findViewById(R.id.lv_page_list);
 
 		adapter3 = new MyCollectRouteAdapter(new ArrayList<CollectRouteVo>(), activity,
-				R.layout.item_collect);
+				R.layout.item_collect_route);
 		page3ListView.setAdapter(adapter3);
 		page3ListView.setOnRefreshListener(new OnRefreshListener() {
 
@@ -439,8 +439,6 @@ public class CollectActivity extends BaseActivity {
 									pageNum1 = 1;
 									adapter.removeAll();
 									adapter.addItems(datas);
-									adapter.addItems(datas);
-									adapter.addItems(datas);
 									if (totalPage < 2) {
 										listView.setHasNoMoreData();
 									} else {
@@ -463,8 +461,6 @@ public class CollectActivity extends BaseActivity {
 									pageNum2 = 1;
 									adapter.removeAll();
 									adapter.addItems(datas);
-									adapter.addItems(datas);
-									adapter.addItems(datas);
 									if (totalPage < 2) {
 										listView.setHasNoMoreData();
 									} else {
@@ -486,8 +482,6 @@ public class CollectActivity extends BaseActivity {
 								if (!Utils.isEmpty(datas)) {
 									pageNum3 = 1;
 									adapter.removeAll();
-									adapter.addItems(datas);
-									adapter.addItems(datas);
 									adapter.addItems(datas);
 									if (totalPage < 2) {
 										listView.setHasNoMoreData();
@@ -535,8 +529,6 @@ public class CollectActivity extends BaseActivity {
 								pageNum4 = 1;
 								adapter.removeAll();
 								adapter.addItems(datas);
-								adapter.addItems(datas);
-								adapter.addItems(datas);
 								if (totalPage < 2) {
 									listView.setHasNoMoreData();
 								} else {
@@ -581,7 +573,6 @@ public class CollectActivity extends BaseActivity {
 								if (!Utils.isEmpty(datas)) {
 									pageNum1++;
 									adapter.addItems(datas);
-									toast(pageNum1 + "");
 									if (totalPage < pageNum1) {
 										listView.setHasNoMoreData();
 									} else {
