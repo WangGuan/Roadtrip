@@ -436,7 +436,7 @@ public class CollectActivity extends BaseActivity {
 								int totalPage = obj.getJSONObject("data")
 										.getInt("total_page");
 								if (!Utils.isEmpty(datas)) {
-									pageNum1 = 1;
+									pageNum1 = 2;
 									adapter.removeAll();
 									adapter.addItems(datas);
 									if (totalPage < 2) {
@@ -458,7 +458,7 @@ public class CollectActivity extends BaseActivity {
 								int totalPage = obj.getJSONObject("data")
 										.getInt("total_page");
 								if (!Utils.isEmpty(datas)) {
-									pageNum2 = 1;
+									pageNum2 = 2;
 									adapter.removeAll();
 									adapter.addItems(datas);
 									if (totalPage < 2) {
@@ -480,7 +480,7 @@ public class CollectActivity extends BaseActivity {
 								int totalPage = obj.getJSONObject("data")
 										.getInt("total_page");
 								if (!Utils.isEmpty(datas)) {
-									pageNum3 = 1;
+									pageNum3 = 2;
 									adapter.removeAll();
 									adapter.addItems(datas);
 									if (totalPage < 2) {
@@ -526,7 +526,7 @@ public class CollectActivity extends BaseActivity {
 							int totalPage = obj.getJSONObject("data").getInt(
 									"total_page");
 							if (!Utils.isEmpty(datas)) {
-								pageNum4 = 1;
+								pageNum4 = 2;
 								adapter.removeAll();
 								adapter.addItems(datas);
 								if (totalPage < 2) {

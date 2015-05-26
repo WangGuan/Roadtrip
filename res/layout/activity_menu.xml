@@ -6,9 +6,16 @@
 
     <include layout="@layout/layout_title_bar" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="我的菜单" />
+       <com.froyo.commonjar.view.CustomListView
+        android:id="@+id/lv_page_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="@android:color/transparent"
+        android:dividerHeight="8dp"
+        android:listSelector="@android:color/transparent"
+        android:background="@android:color/transparent"
+        android:scrollbars="none"
+        android:divider="@android:color/white"
+        android:padding="8dp"/>
 
 </LinearLayout>
