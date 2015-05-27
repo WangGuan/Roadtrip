@@ -24,6 +24,7 @@ import com.wy.roadtrip.componet.TitleBar;
 import com.wy.roadtrip.constant.Const;
 import com.wy.roadtrip.utils.SimpleUtils;
 import com.wy.roadtrip.vo.CollectRouteVo;
+import com.wy.roadtrip.vo.MyOrderVo;
 
 /**
  * 
@@ -46,9 +47,9 @@ public class MenuActivity extends BaseActivity {
 		TitleBar bar = new TitleBar(activity);
 		bar.showBack();
 		bar.setTitle("我的订单");
-		adapter = new MyOrderAdapter(new ArrayList<CollectRouteVo>(), activity,
+		adapter = new MyOrderAdapter(new ArrayList<MyOrderVo>(), activity,
 				R.layout.item_collect_route);
-		listView.setCanLoadMore(true);
+		listView.setAdapter(adapter);
 
 		listView.setOnRefreshListener(new OnRefreshListener() {
 
@@ -80,11 +81,11 @@ public class MenuActivity extends BaseActivity {
 					@Override
 					public void getResp(JSONObject obj) {
 						try {
-							List<CollectRouteVo> datas = GsonTools.getList(
+							List<MyOrderVo> datas = GsonTools.getList(
 									obj.getJSONObject("data").getJSONArray(
-											"list"), CollectRouteVo.class);
+											"list"), MyOrderVo.class);
 							int totalPage = obj.getJSONObject("data").getInt(
-									"total_page");
+									"totalPage");
 							if (!Utils.isEmpty(datas)) {
 								pageNum = 2;
 								adapter.removeAll();
@@ -124,11 +125,11 @@ public class MenuActivity extends BaseActivity {
 					@Override
 					public void getResp(JSONObject obj) {
 						try {
-							List<CollectRouteVo> datas = GsonTools.getList(
+							List<MyOrderVo> datas = GsonTools.getList(
 									obj.getJSONObject("data").getJSONArray(
-											"list"), CollectRouteVo.class);
+											"list"), MyOrderVo.class);
 							int totalPage = obj.getJSONObject("data").getInt(
-									"total_page");
+									"totalPage");
 							if (!Utils.isEmpty(datas)) {
 								pageNum++;
 								adapter.addItems(datas);

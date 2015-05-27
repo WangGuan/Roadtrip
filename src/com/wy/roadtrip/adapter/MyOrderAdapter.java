@@ -15,20 +15,20 @@ import com.froyo.commonjar.adapter.SimpleAdapter;
 import com.froyo.commonjar.network.BitmapCache;
 import com.froyo.commonjar.utils.Utils;
 import com.wy.roadtrip.R;
-import com.wy.roadtrip.vo.CollectRouteVo;
+import com.wy.roadtrip.vo.MyOrderVo;
 
 /**
  * 我的订单
  * @author wangyi
  *
  */
-public class MyOrderAdapter extends SimpleAdapter<CollectRouteVo> {
+public class MyOrderAdapter extends SimpleAdapter<MyOrderVo> {
 
 	private RequestQueue mQueue;
 
 	private ImageLoader imageLoader;
 	
-	public MyOrderAdapter(List<CollectRouteVo> data, BaseActivity activity,
+	public MyOrderAdapter(List<MyOrderVo> data, BaseActivity activity,
 			int layoutId) {
 		super(data, activity, layoutId, ViewHolder.class, R.id.class);
 		mQueue = Volley.newRequestQueue(activity);
@@ -36,7 +36,7 @@ public class MyOrderAdapter extends SimpleAdapter<CollectRouteVo> {
 	}
 
 	@Override
-	public void doExtra(View convertView, CollectRouteVo item, int position) {
+	public void doExtra(View convertView, MyOrderVo item, int position) {
 		ViewHolder h = (ViewHolder) holder;
 		h.tv_title.setText(item.getTitle());
 		h.tv_content.setText(item.getLine());

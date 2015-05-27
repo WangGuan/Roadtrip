@@ -40,8 +40,8 @@ public interface Const {
 	/**我的收藏-线路列表*/
 	public static final String COLLECT_ROUTE=DOMAIN+"index.php?s=/favorite/app/fav_route_list";
 	
-	/*我的订单列表*/
-	public static final String ORDER_LIST=DOMAIN+"index.php?s=/order/app/app_list";
+	/**我的订单列表*/
+	public static final String ORDER_LIST=DOMAIN+"index.php?s=/order/app/order_list";
 
 	/**用户登录id*/
 	public static final String UID="com.wy.roadtrip.uid";
