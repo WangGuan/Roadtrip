@@ -13,7 +13,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="#96000000"
+        android:background="@drawable/icon_cover"
         android:orientation="vertical" >
 
         <TextView

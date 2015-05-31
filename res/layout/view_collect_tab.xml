@@ -21,6 +21,6 @@
     <View
         android:layout_width="fill_parent"
         android:layout_height="2dp"
-        android:background="#fb6945" />
+        android:background="#50BBDB" />
 
 </LinearLayout>

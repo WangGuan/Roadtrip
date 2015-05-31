@@ -13,6 +13,7 @@ import com.froyo.commonjar.network.PostParams;
 import com.froyo.commonjar.network.PostRequest;
 import com.froyo.commonjar.network.RespListener;
 import com.froyo.commonjar.utils.GsonTools;
+import com.froyo.commonjar.utils.InitUtil;
 import com.froyo.commonjar.utils.SpUtil;
 import com.froyo.commonjar.utils.Utils;
 import com.lidroid.xutils.view.annotation.ViewInject;
@@ -42,6 +43,7 @@ public class LoginActivity extends BaseActivity {
 	public void doBusiness() {
 		TitleBar bar = new TitleBar(activity);
 		bar.setTitle("登录");
+		InitUtil.createImageCacheFolder(this);
 	}
 
 	@OnClick(R.id.btn_login)
@@ -70,11 +72,14 @@ public class LoginActivity extends BaseActivity {
 						ResponseVo vo=GsonTools.getVo(obj.toString(), ResponseVo.class);
 						if(vo.isSucess()){
 							try {
+								toast(vo.getMsg());
 								String auth=obj.getJSONObject("data").getString("auth");
 								String uid=obj.getJSONObject("data").getJSONObject("userinfo").getString("uid");
+								String userName=obj.getJSONObject("data").getJSONObject("userinfo").getString("username");
 								SpUtil sp=new SpUtil(activity);
 								sp.setValue(Const.AUTH, auth);
 								sp.setValue(Const.UID, uid);
+								sp.setValue(Const.USERNAME, userName);
 								skip(MainActivity.class);
 								finish();
 							} catch (JSONException e) {

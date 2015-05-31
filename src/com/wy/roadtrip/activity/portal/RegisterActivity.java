@@ -115,12 +115,14 @@ public class RegisterActivity extends BaseActivity {
 						ResponseVo vo=GsonTools.getVo(obj.toString(), ResponseVo.class);
 						if(vo.isSucess()){
 							try {
+								toast(vo.getMsg());
 								String auth=obj.getJSONObject("data").getString("auth");
 								String uid=obj.getJSONObject("data").getJSONObject("userinfo").getString("uid");
 								SpUtil sp=new SpUtil(activity);
 								sp.setValue(Const.AUTH, auth);
 								sp.setValue(Const.UID, uid);
 								skip(AddInfoActivity.class);
+								finish();
 							} catch (JSONException e) {
 								e.printStackTrace();
 							}
@@ -154,7 +156,6 @@ public class RegisterActivity extends BaseActivity {
 					public void getResp(JSONObject obj) {
 						ResponseVo vo=GsonTools.getVo(obj.toString(), ResponseVo.class);
 						toast(vo.getMsg());
-						System.out.println("ob1:"+obj);
 					}
 				});
 		mQueue.add(req);

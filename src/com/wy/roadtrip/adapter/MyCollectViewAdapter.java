@@ -57,6 +57,7 @@ public class MyCollectViewAdapter extends SimpleAdapter<CollectVo> {
 				activity.skip(CollectViewActivity.class);
 			}
 		});
+		h.cb_selected.setVisibility(View.GONE);
 	}
 
 	public static class ViewHolder {

@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.froyo.commonjar.componet.BadgeView;
 import com.froyo.commonjar.fragment.BaseFragment;
+import com.froyo.commonjar.utils.SpUtil;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.wy.roadtrip.R;
@@ -17,7 +18,7 @@ import com.wy.roadtrip.activity.menu.MenuActivity;
 import com.wy.roadtrip.activity.mystyle.MyMsgActivity;
 import com.wy.roadtrip.activity.mystyle.MystyleActivity;
 import com.wy.roadtrip.activity.photo.PhotoActivity;
-import com.wy.roadtrip.activity.portal.AddInfoActivity;
+import com.wy.roadtrip.constant.Const;
 
 /**
  * 
@@ -31,6 +32,9 @@ public class FragmentHome extends BaseFragment {
 	@ViewInject(R.id.tv_msg)
 	private TextView tv_msg;
 	
+	@ViewInject(R.id.tv_name)
+	private TextView tv_name;
+	
 	@Override
 	protected void setListener() {
 		   BadgeView tips = new BadgeView(activity, tv_msg);
@@ -38,6 +42,9 @@ public class FragmentHome extends BaseFragment {
            tips.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);
            tips.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
            tips.toggle();
+           
+           SpUtil sp=new SpUtil(activity);
+           tv_name.setText(sp.getStringValue(Const.USERNAME));
 	}
 	
 	@OnClick(R.id.tv_msg)
@@ -47,8 +54,7 @@ public class FragmentHome extends BaseFragment {
 	
 	@OnClick(R.id.rl_line)
 	void line(View view) {
-//		activity.skip(LineActivity.class);
-		activity.skip(AddInfoActivity.class);
+		activity.skip(LineActivity.class);
 	}
 
 	@OnClick(R.id.rl_collect)

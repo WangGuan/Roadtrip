@@ -46,6 +46,7 @@ public class MyCollectRouteAdapter extends SimpleAdapter<CollectRouteVo> {
 			h.iv_picture.setVisibility(View.VISIBLE);
 			h.iv_picture.setImageUrl(item.getImage(), imageLoader);
 		}
+		h.cb_selected.setVisibility(View.GONE);
 //		if (item.isSelected()) {
 //			h.cb_selected.setChecked(true);
 //		} else {

@@ -19,7 +19,7 @@ import com.wy.roadtrip.vo.CollectPhotoVo;
  * 收藏--照片
  * 
  * @author wangyi
- *
+ * 
  */
 public class CollectPhotoAdapter extends GridSimpleAdapter<CollectPhotoVo> {
 
@@ -38,6 +38,7 @@ public class CollectPhotoAdapter extends GridSimpleAdapter<CollectPhotoVo> {
 	public void doExtra(View convertView, CollectPhotoVo item, int position) {
 		ViewHolder h = (ViewHolder) holder;
 		h.iv_header.setImageUrl(item.getImage(), imageLoader);
+		h.cb_selected.setVisibility(View.GONE);
 	}
 
 	@Override

@@ -43,11 +43,16 @@ public interface Const {
 	/**我的订单列表*/
 	public static final String ORDER_LIST=DOMAIN+"index.php?s=/order/app/order_list";
 
+	/**上传，修改头像图片*/
+	public static final String ALTER_AVATAR=DOMAIN+"index.php?s=/ucenter/app/alter_avatar";
+
 	/**用户登录id*/
 	public static final String UID="com.wy.roadtrip.uid";
 	
 	/**用户登录auth*/
 	public static final String AUTH="com.wy.roadtrip.auth";
+
+	public static final String USERNAME="com.wy.roadtrip.username";
 	
 	public static final int REQUEST_CODE_IMAGE_CAPTURE = 0;
 	

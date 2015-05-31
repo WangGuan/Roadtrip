@@ -11,13 +11,12 @@ import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
 
 import com.froyo.commonjar.activity.BaseActivity;
-import com.froyo.commonjar.utils.Utils;
+import com.froyo.commonjar.view.CustomExpandableListView;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.wy.roadtrip.R;
 import com.wy.roadtrip.adapter.CollectViewAdapter;
 import com.wy.roadtrip.vo.CollectViewChildVo;
 import com.wy.roadtrip.vo.CollectViewPvo;
-import com.froyo.commonjar.view.CustomExpandableListView;
 /**
  * 收藏---看点---详情
  * @author wangyi

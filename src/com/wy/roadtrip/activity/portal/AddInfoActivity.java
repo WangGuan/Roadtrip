@@ -25,14 +25,17 @@ import com.froyo.commonjar.activity.BaseActivity;
 import com.froyo.commonjar.network.PostParams;
 import com.froyo.commonjar.network.PostRequest;
 import com.froyo.commonjar.network.RespListener;
+import com.froyo.commonjar.utils.GsonTools;
 import com.froyo.commonjar.utils.InitUtil;
 import com.froyo.commonjar.utils.Utils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.wy.roadtrip.R;
+import com.wy.roadtrip.activity.MainActivity;
 import com.wy.roadtrip.componet.TitleBar;
 import com.wy.roadtrip.constant.Const;
 import com.wy.roadtrip.utils.SimpleUtils;
+import com.wy.roadtrip.vo.ResponseVo;
 
 /**
  * 注册第二步，设置个人信息
@@ -55,6 +58,8 @@ public class AddInfoActivity extends BaseActivity {
 	private ImageView iv_avator;
 
 	private File mCurrentPhotoFile;
+	
+	private boolean uploadAvator=false;
 
 	@Override
 	public void doBusiness() {
@@ -92,6 +97,10 @@ public class AddInfoActivity extends BaseActivity {
 
 	@OnClick(R.id.btn_submit)
 	void submit(View view) {
+		if(!uploadAvator){
+			toast("请上传头像");
+			return;
+		}
 		if (Utils.isEmpty(et_nickname.getText().toString())) {
 			toast("请填写昵称");
 			return;
@@ -112,7 +121,12 @@ public class AddInfoActivity extends BaseActivity {
 
 					@Override
 					public void getResp(JSONObject obj) {
-						System.out.println("xx:"+obj);
+						ResponseVo vo=GsonTools.getVo(obj.toString(), ResponseVo.class);
+						toast(vo.getMsg());
+						if(vo.isSucess()){
+							skip(MainActivity.class);
+							finish();
+						}
 					}
 				});
 		mQueue.add(req);
@@ -177,8 +191,7 @@ public class AddInfoActivity extends BaseActivity {
 					}
 					Bitmap photo = extras.getParcelable("data");
 					Bitmap bitmap = Utils.getRoundedCornerBitmap(photo);
-					iv_avator.setImageBitmap(bitmap);
-					doUpLoadAvator();
+					doUpLoadAvator(bitmap);
 				}
 
 			}
@@ -186,8 +199,28 @@ public class AddInfoActivity extends BaseActivity {
 		}
 	}
 
-	private void doUpLoadAvator() {
-		
+	private void doUpLoadAvator(final Bitmap photo) {
+		showDialog("正在上传头像……");
+		RequestQueue mQueue = Volley.newRequestQueue(this);
+		PostParams params = new PostParams();
+		File tempFile = Utils.saveBitmapFile(activity, photo);
+		params.put("file", tempFile);
+
+		PostRequest req = new PostRequest(activity, params, SimpleUtils.buildUrl(activity, Const.ALTER_AVATAR),
+				new RespListener(activity) {
+
+					@Override
+					public void getResp(JSONObject obj) {
+						ResponseVo vo=GsonTools.getVo(obj.toString(), ResponseVo.class);
+						toast(vo.getMsg());
+						if(vo.isSucess()){
+							uploadAvator=true;
+							iv_avator.setImageBitmap(photo);
+						}
+					}
+				});
+		mQueue.add(req);
+		mQueue.start();
 	}
 
 	/** 缩放拍摄图片 */

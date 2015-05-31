@@ -47,7 +47,7 @@ public class MyMsgActivity extends BaseActivity {
 				skip(MsgDetailActivity.class);
 			}
 		});
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 10; i++) {
 			MyMsgVo vo = new MyMsgVo();
 			adapter.addItem(vo, 0);
 		}

@@ -3,6 +3,7 @@ package com.wy.roadtrip.activity.line;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -78,7 +79,14 @@ public class LineActivity extends BaseActivity {
 
 			@Override
 			public void onRefresh() {
-
+				new Handler().postDelayed(new Runnable() {
+					
+					@Override
+					public void run() {
+						listView.onRefreshComplete();
+						
+					}
+				}, 3000);
 			}
 		});
 

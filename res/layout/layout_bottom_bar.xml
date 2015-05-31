@@ -3,7 +3,7 @@
     android:id="@+id/ll_bottom"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:background="#96000000"
+    android:background="@drawable/icon_cover"
     android:orientation="horizontal"
     >
 
