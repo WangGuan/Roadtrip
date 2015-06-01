@@ -1,5 +1,7 @@
 package com.wy.roadtrip.utils;
 
+import android.net.Uri;
+
 import com.froyo.commonjar.activity.BaseActivity;
 import com.froyo.commonjar.utils.SpUtil;
 import com.froyo.commonjar.utils.Utils;
@@ -19,7 +21,7 @@ public class SimpleUtils {
 		if(!isLogin(activity)){
 			return "";
 		}
-		return url+"&auth="+sp.getStringValue(Const.AUTH)+"&uid="+sp.getStringValue(Const.UID);
+		return url+"&auth="+Uri.encode(sp.getStringValue(Const.AUTH))+"&uid="+sp.getStringValue(Const.UID);
 	}
 	
 	public static boolean isLogin(BaseActivity activity){
