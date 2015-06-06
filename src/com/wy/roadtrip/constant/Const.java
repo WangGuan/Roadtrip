@@ -36,6 +36,12 @@ public interface Const {
 	
 	/**我的收藏-照片列表*/
 	public static final String COLLECT_PIC=DOMAIN+"index.php?s=/favorite/app/fav_pic_list";
+
+	/**我的车队*/
+	public static final String MY_CAR_TEAM=DOMAIN+"index.php?s=/fleet/app/all_team";
+
+	/**上传个人位置*/
+	public static final String UPLOAD_LOCAL=DOMAIN+"/index.php?s=/fleet/app/upload_loc";
 	
 	/**我的收藏-线路列表*/
 	public static final String COLLECT_ROUTE=DOMAIN+"index.php?s=/favorite/app/fav_route_list";

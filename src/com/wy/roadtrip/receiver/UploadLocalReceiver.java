@@ -1,15 +1,25 @@
 package com.wy.roadtrip.receiver;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationListener;
 import com.amap.api.location.LocationManagerProxy;
 import com.amap.api.location.LocationProviderProxy;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response.ErrorListener;
+import com.android.volley.Response.Listener;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.froyo.commonjar.utils.SpUtil;
 import com.froyo.commonjar.utils.Utils;
 import com.wy.roadtrip.constant.Const;
@@ -18,7 +28,7 @@ public class UploadLocalReceiver extends BroadcastReceiver {
 
 	private LocationManagerProxy mLocationManagerProxy;
 
-	private void init(Context context) {
+	private void init(final Context context) {
 		// 初始化定位，只采用网络定位
 		mLocationManagerProxy = LocationManagerProxy.getInstance(context);
 		mLocationManagerProxy.setGpsEnable(true);
@@ -57,10 +67,9 @@ public class UploadLocalReceiver extends BroadcastReceiver {
 						if (amapLocation != null
 								&& amapLocation.getAMapException()
 										.getErrorCode() == 0) {
-							System.out.println("当前地址："
-									+ amapLocation.getAddress());
+							UploadLocal(context, amapLocation.getLongitude(),
+									amapLocation.getLongitude());
 						} else {
-							System.out.println("地位失败了");
 						}
 					}
 				});
@@ -69,14 +78,46 @@ public class UploadLocalReceiver extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		
 		String action = intent.getAction();
 		if (Const.ACTION_UPLOAD_CAR_LOCAL.equals(action)) {
-			SpUtil sp=new SpUtil(context);
-			if(!Utils.isEmpty(sp.getStringValue(Const.CAR_TEAM_ID))){
+			SpUtil sp = new SpUtil(context);
+			if (!Utils.isEmpty(sp.getStringValue(Const.CAR_TEAM_ID))) {
 				init(context);
 			}
 		}
+	}
+
+	private void UploadLocal(Context context, Double longitude, Double latitude) {
+		RequestQueue mQueue = Volley.newRequestQueue(context);
+		SpUtil sp = new SpUtil(context);
+		String url = Const.UPLOAD_LOCAL + "&auth="
+				+ Uri.encode(sp.getStringValue(Const.AUTH)) + "&uid="
+				+ sp.getStringValue(Const.UID);
+
+		JSONObject param = new JSONObject();
+		try {
+			param.put("longitude", longitude);
+			param.put("latitude", latitude);
+		} catch (JSONException e) {
+		}
+		JsonObjectRequest req = new JsonObjectRequest(url, param,
+				new Listener<JSONObject>() {
+
+					@Override
+					public void onResponse(JSONObject arg0) {
+					}
+
+				}, new ErrorListener() {
+
+					@Override
+					public void onErrorResponse(VolleyError arg0) {
+					}
+
+				}) {
+		};
+		req.setShouldCache(false);
+		mQueue.add(req);
+		mQueue.start();
 	}
 
 }

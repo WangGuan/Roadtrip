@@ -261,7 +261,7 @@ public class MainActivity extends BaseActivity {
 		}
 		return super.onKeyUp(keyCode, event);
 	}
-	
+
 	@Override
 	protected int setLayoutResID() {
 		return R.layout.activity_main;
