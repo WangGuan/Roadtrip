@@ -15,6 +15,8 @@ import com.wy.roadtrip.activity.collect.CollectActivity;
 import com.wy.roadtrip.activity.line.LineActivity;
 import com.wy.roadtrip.activity.map.OfflineMapActivity;
 import com.wy.roadtrip.activity.menu.MenuActivity;
+import com.wy.roadtrip.activity.mystyle.MyAttentionActivity;
+import com.wy.roadtrip.activity.mystyle.MyFansActivity;
 import com.wy.roadtrip.activity.mystyle.MyMsgActivity;
 import com.wy.roadtrip.activity.mystyle.MystyleActivity;
 import com.wy.roadtrip.activity.photo.PhotoActivity;
@@ -87,6 +89,15 @@ public class FragmentHome extends BaseFragment {
 		activity.skip(OfflineMapActivity.class);
 	}
 
+	@OnClick(R.id.tv_follow)
+	void myAttention(View view){
+		activity.skip(MyAttentionActivity.class);
+	}
+	 
+	@OnClick(R.id.tv_fans)
+	void myFans(View view){
+		activity.skip(MyFansActivity.class);
+	}
 	@Override
 	protected int setLayoutResID() {
 		return R.layout.fragment_home;

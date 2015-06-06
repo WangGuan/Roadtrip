@@ -3,6 +3,8 @@ package com.wy.roadtrip.constant;
 public interface Const {
 	
 	public static final String DOMAIN="http://121.40.224.43/opencenter/";
+
+	public static final String IMAGE_DOMAIN="http://121.40.224.43/";
 	
 	/**登录*/
 	public static final String LOGIN=DOMAIN+"index.php?s=/ucenter/app/login";
@@ -41,7 +43,7 @@ public interface Const {
 	public static final String MY_CAR_TEAM=DOMAIN+"index.php?s=/fleet/app/all_team";
 
 	/**上传个人位置*/
-	public static final String UPLOAD_LOCAL=DOMAIN+"/index.php?s=/fleet/app/upload_loc";
+	public static final String UPLOAD_LOCAL=DOMAIN+"index.php?s=/fleet/app/upload_loc";
 	
 	/**我的收藏-线路列表*/
 	public static final String COLLECT_ROUTE=DOMAIN+"index.php?s=/favorite/app/fav_route_list";
@@ -51,6 +53,18 @@ public interface Const {
 
 	/**上传，修改头像图片*/
 	public static final String ALTER_AVATAR=DOMAIN+"index.php?s=/ucenter/app/alter_avatar";
+
+	/**我的关注*/
+	public static final String MY_ATTENTION =DOMAIN+"index.php?s=/ucenter/app/following";
+
+	/**我的粉丝*/
+	public static final String MY_FANS =DOMAIN+"index.php?s=/ucenter/app/fans";
+
+	/**添加关注*/
+	public static final String ADD_ATTENTION =DOMAIN+"index.php?s=/ucenter/app/follow";
+
+	/**取消关注*/
+	public static final String CANCEL_ATTENTION =DOMAIN+"index.php?s=/ucenter/app/unfollow";
 
 	/**用户登录id*/
 	public static final String UID="com.wy.roadtrip.uid";

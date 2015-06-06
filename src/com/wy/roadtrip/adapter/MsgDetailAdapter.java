@@ -1,7 +1,5 @@
 package com.wy.roadtrip.adapter;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import android.graphics.Color;
@@ -10,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.froyo.commonjar.activity.BaseActivity;
@@ -31,7 +28,6 @@ public class MsgDetailAdapter extends SimpleAdapter<MsgDetailVo> {
 		ViewHolder h = (ViewHolder) holder;
 
 		if (!item.isSend()) {
-			
 			
 			RelativeLayout.LayoutParams lp1 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 			lp1.addRule(RelativeLayout.ALIGN_PARENT_LEFT,RelativeLayout.TRUE);

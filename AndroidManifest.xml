@@ -69,7 +69,14 @@
             android:name=".activity.mystyle.MyMsgActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
+            android:name=".activity.mystyle.MyFansActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
             android:name=".activity.mystyle.MsgDetailActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name=".activity.mystyle.MyAttentionActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".activity.order.OrderActivity"

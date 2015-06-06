@@ -11,10 +11,8 @@ import com.froyo.commonjar.activity.BaseActivity;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.wy.roadtrip.R;
 import com.wy.roadtrip.adapter.MsgDetailAdapter;
-import com.wy.roadtrip.adapter.MyMsgAdapter;
 import com.wy.roadtrip.componet.TitleBar;
 import com.wy.roadtrip.vo.MsgDetailVo;
-import com.wy.roadtrip.vo.MyMsgVo;
 
 /**
  * 
