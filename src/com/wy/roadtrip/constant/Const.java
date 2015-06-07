@@ -66,6 +66,9 @@ public interface Const {
 	/**取消关注*/
 	public static final String CANCEL_ATTENTION =DOMAIN+"index.php?s=/ucenter/app/unfollow";
 
+	/**我的照片列表*/
+	public static final String MY_PHOTO_LIST =DOMAIN+"index.php?s=/interaction/appAdmin/pic_list";
+
 	/**用户登录id*/
 	public static final String UID="com.wy.roadtrip.uid";
 	

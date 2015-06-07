@@ -21,7 +21,6 @@ import com.froyo.commonjar.network.PostParams;
 import com.froyo.commonjar.network.PostRequest;
 import com.froyo.commonjar.network.RespListener;
 import com.froyo.commonjar.utils.GsonTools;
-import com.froyo.commonjar.utils.Utils;
 import com.wy.roadtrip.R;
 import com.wy.roadtrip.constant.Const;
 import com.wy.roadtrip.utils.SimpleUtils;
