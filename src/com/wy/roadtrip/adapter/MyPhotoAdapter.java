@@ -2,12 +2,7 @@ package com.wy.roadtrip.adapter;
 
 import java.util.List;
 
-import org.json.JSONObject;
-
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
@@ -17,18 +12,11 @@ import com.android.volley.toolbox.Volley;
 import com.froyo.commonjar.activity.BaseActivity;
 import com.froyo.commonjar.adapter.SimpleAdapter;
 import com.froyo.commonjar.network.BitmapCache;
-import com.froyo.commonjar.network.PostParams;
-import com.froyo.commonjar.network.PostRequest;
-import com.froyo.commonjar.network.RespListener;
-import com.froyo.commonjar.utils.GsonTools;
 import com.froyo.commonjar.utils.Utils;
 import com.wy.roadtrip.R;
 import com.wy.roadtrip.constant.Const;
-import com.wy.roadtrip.utils.SimpleUtils;
-import com.wy.roadtrip.vo.MyAttentionVo;
 import com.wy.roadtrip.vo.MyPhotoVo;
 import com.wy.roadtrip.vo.MyPhotoVo.Pic;
-import com.wy.roadtrip.vo.ResponseVo;
 
 /**
  * 
@@ -57,23 +45,20 @@ public class MyPhotoAdapter extends SimpleAdapter<MyPhotoVo> {
 				Long.parseLong(item.getCreate_time() + "000"), "dd"));
 		h.tv_month.setText(convert(Utils.formatTime(
 				Long.parseLong(item.getCreate_time() + "000"), "MM")));
-		h.iv_1.setImageUrl(Const.DOMAIN + item.getCover(), imageLoader);
+		h.iv_1.setImageUrl(item.getCover(), imageLoader);
 		if (item.getPics().size() > 1) {
 			h.tv_title.setVisibility(View.GONE);
 			for (int i = 0; i < item.getPics().size(); i++) {
 				Pic pic = item.getPics().get(i);
 				if (i == 0) {
 					h.iv_2.setVisibility(View.VISIBLE);
-					h.iv_2.setImageUrl(Const.DOMAIN + pic.getPic_path(),
-							imageLoader);
+					h.iv_2.setImageUrl(pic.getPic_path(), imageLoader);
 				} else if (i == 1) {
-					h.iv_3.setImageUrl(Const.DOMAIN + pic.getPic_path(),
-							imageLoader);
+					h.iv_3.setImageUrl(pic.getPic_path(), imageLoader);
 					h.iv_3.setVisibility(View.VISIBLE);
 				} else if (i == 2) {
 					h.iv_4.setVisibility(View.VISIBLE);
-					h.iv_4.setImageUrl(Const.DOMAIN + pic.getPic_path(),
-							imageLoader);
+					h.iv_4.setImageUrl(pic.getPic_path(), imageLoader);
 				}
 			}
 		} else {

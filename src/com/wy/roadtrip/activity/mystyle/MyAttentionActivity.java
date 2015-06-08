@@ -17,6 +17,7 @@ import com.froyo.commonjar.network.PostParams;
 import com.froyo.commonjar.network.PostRequest;
 import com.froyo.commonjar.network.RespListener;
 import com.froyo.commonjar.utils.GsonTools;
+import com.froyo.commonjar.utils.SpUtil;
 import com.froyo.commonjar.utils.Utils;
 import com.froyo.commonjar.view.CustomListView;
 import com.froyo.commonjar.view.CustomListView.OnLoadMoreListener;
@@ -90,6 +91,8 @@ public class MyAttentionActivity extends BaseActivity {
 		RequestQueue mQueue = Volley.newRequestQueue(this);
 		PostParams params = new PostParams();
 		params.put("page", 1+"");
+		SpUtil sp=new SpUtil(activity);
+		params.put("tuid", sp.getStringValue(Const.UID));
 		PostRequest req = new PostRequest(activity, params,
 				SimpleUtils.buildUrl(activity, Const.MY_ATTENTION),
 				new RespListener(activity) {
@@ -115,6 +118,7 @@ public class MyAttentionActivity extends BaseActivity {
 								}
 							}
 						} catch (Exception e) {
+							toast("尚未关注任何人");
 						}
 						listView.onRefreshComplete();
 					}

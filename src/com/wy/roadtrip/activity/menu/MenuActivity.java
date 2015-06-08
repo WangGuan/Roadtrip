@@ -23,7 +23,6 @@ import com.wy.roadtrip.adapter.MyOrderAdapter;
 import com.wy.roadtrip.componet.TitleBar;
 import com.wy.roadtrip.constant.Const;
 import com.wy.roadtrip.utils.SimpleUtils;
-import com.wy.roadtrip.vo.CollectRouteVo;
 import com.wy.roadtrip.vo.MyOrderVo;
 
 /**

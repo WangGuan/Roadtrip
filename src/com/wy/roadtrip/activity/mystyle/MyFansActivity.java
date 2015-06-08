@@ -17,6 +17,7 @@ import com.froyo.commonjar.network.PostParams;
 import com.froyo.commonjar.network.PostRequest;
 import com.froyo.commonjar.network.RespListener;
 import com.froyo.commonjar.utils.GsonTools;
+import com.froyo.commonjar.utils.SpUtil;
 import com.froyo.commonjar.utils.Utils;
 import com.froyo.commonjar.view.CustomListView;
 import com.froyo.commonjar.view.CustomListView.OnLoadMoreListener;
@@ -87,6 +88,9 @@ public class MyFansActivity extends BaseActivity {
 		RequestQueue mQueue = Volley.newRequestQueue(this);
 		PostParams params = new PostParams();
 		params.put("page", 1+"");
+		SpUtil sp=new SpUtil(activity);
+		params.put("tuid", sp.getStringValue(Const.UID));
+		
 		PostRequest req = new PostRequest(activity, params,
 				SimpleUtils.buildUrl(activity, Const.MY_FANS),
 				new RespListener(activity) {

@@ -23,12 +23,10 @@ import com.froyo.commonjar.view.CustomListView.OnLoadMoreListener;
 import com.froyo.commonjar.view.CustomListView.OnRefreshListener;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.wy.roadtrip.R;
-import com.wy.roadtrip.adapter.MyAttentionAdapter;
 import com.wy.roadtrip.adapter.MyPhotoAdapter;
 import com.wy.roadtrip.componet.TitleBar;
 import com.wy.roadtrip.constant.Const;
 import com.wy.roadtrip.utils.SimpleUtils;
-import com.wy.roadtrip.vo.MyAttentionVo;
 import com.wy.roadtrip.vo.MyPhotoVo;
 /**
  * 
@@ -76,7 +74,8 @@ public class PhotoActivity extends BaseActivity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
-				MyAttentionVo vo=(MyAttentionVo) arg0.getAdapter().getItem(arg2);
+				MyPhotoVo vo=(MyPhotoVo) arg0.getAdapter().getItem(arg2);
+				skip(PhotoDetailActivity.class,vo.getId());
 			}
 		});
 		showDialog();
@@ -94,7 +93,6 @@ public class PhotoActivity extends BaseActivity {
 
 					@Override
 					public void getResp(JSONObject obj) {
-						System.out.println("obj:"+obj);
 						try {
 							List<MyPhotoVo> datas = GsonTools.getList(
 									obj.getJSONObject("data").getJSONArray(

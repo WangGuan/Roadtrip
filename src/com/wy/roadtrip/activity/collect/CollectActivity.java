@@ -164,18 +164,27 @@ public class CollectActivity extends BaseActivity {
 
 		List<View> lists = new ArrayList<View>();
 		for (int i = 1; i < 5; i++) {
-			View view = activity.makeView(R.layout.layout_collect_page);
-			View temp=view.findViewById(R.id.view_divider);
-			lists.add(view);
+			
 			if (i == 1) {
+				View view = activity.makeView(R.layout.layout_collect_page);
+				View temp=view.findViewById(R.id.view_divider);
+				lists.add(view);
 				temp.setVisibility(View.GONE);
 				initPage1(view);
 			} else if (i == 2) {
+				View view = activity.makeView(R.layout.layout_collect_page);
+				View temp=view.findViewById(R.id.view_divider);
+				lists.add(view);
 				temp.setVisibility(View.GONE);
 				initPage2(view);
 			} else if (i == 3) {
+				View view = activity.makeView(R.layout.layout_collect_page);
+				lists.add(view);
+//				temp.setVisibility(View.GONE);
 				initPage3(view);
 			} else if (i == 4) {
+				View view = activity.makeView(R.layout.layout_collect_photo);
+				lists.add(view);
 				initPage4(view);
 			}
 		}

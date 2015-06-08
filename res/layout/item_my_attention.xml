@@ -4,12 +4,6 @@
     android:layout_width="fill_parent"
     android:layout_height="64dp" >
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1px"
-        android:layout_alignParentTop="true"
-        android:background="#CCCCCC" />
-
     <com.android.volley.toolbox.NetworkImageView
         android:id="@+id/iv_header"
         android:layout_width="40dp"
@@ -17,7 +11,6 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginBottom="10dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/icon_default_header"
         android:scaleType="fitXY" />
@@ -47,24 +40,34 @@
         android:ellipsize="end"
         android:singleLine="true"
         android:textColor="#666666"
-        android:textSize="13sp" />
+        android:textSize="13sp" 
+        android:text="   "/>
 
     <ImageView
+        android:id="@+id/iv_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="8dp"
         android:src="@drawable/icon_next" />
 
     <ImageView
         android:id="@+id/iv_sex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tv_title"
         android:layout_centerVertical="true"
         android:layout_marginLeft="8dp"
         android:layout_toRightOf="@id/tv_title"
-        android:src="@drawable/icon_male"
-        android:layout_alignBottom="@id/tv_title" />
+        android:src="@drawable/icon_male" />
+
+   <View 
+	    android:layout_width="fill_parent"
+        android:layout_height="1px"
+	    android:layout_alignParentBottom="true"
+	    android:background="#CCCCCC"
+	    android:layout_alignLeft="@id/iv_header"
+	    android:layout_alignRight="@id/iv_next"
+	    />
 
 </RelativeLayout>

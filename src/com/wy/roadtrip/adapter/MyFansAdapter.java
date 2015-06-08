@@ -50,8 +50,7 @@ public class MyFansAdapter extends SimpleAdapter<MyAttentionVo> {
 	@Override
 	public void doExtra(View convertView, final MyAttentionVo item, int position) {
 		ViewHolder h = (ViewHolder) holder;
-		h.iv_header.setImageUrl(Const.IMAGE_DOMAIN
-				+ item.getUser().getAvatar128(), imageLoader);
+		h.iv_header.setImageUrl(item.getUser().getAvatar128(), imageLoader);
 		h.tv_title.setText(item.getUser().getNickname());
 		if ("1".equals(item.getUser().getSex())) {
 			h.iv_sex.setImageResource(R.drawable.icon_female);

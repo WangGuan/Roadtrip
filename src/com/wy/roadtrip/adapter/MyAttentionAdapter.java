@@ -39,7 +39,7 @@ public class MyAttentionAdapter extends SimpleAdapter<MyAttentionVo> {
 	@Override
 	public void doExtra(View convertView, MyAttentionVo item, int position) {
 		ViewHolder h = (ViewHolder) holder;
-		h.iv_header.setImageUrl(Const.IMAGE_DOMAIN+item.getUser().getAvatar128(), imageLoader);
+		h.iv_header.setImageUrl(item.getUser().getAvatar128(), imageLoader);
 		h.tv_title.setText(item.getUser().getNickname());
 		h.tv_content.setText(item.getUser().getSignature());
 		if("1".equals(item.getUser().getSex())){

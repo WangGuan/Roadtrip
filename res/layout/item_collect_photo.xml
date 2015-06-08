@@ -3,7 +3,7 @@
     android:id="@+id/rl_content"
     android:layout_width="90dp"
     android:layout_height="90dp"
-    android:background="@android:color/white"
+    android:background="#eeeeee"
     android:paddingLeft="5dp"
     android:paddingRight="5dp"
      >

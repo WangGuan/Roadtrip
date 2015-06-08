@@ -4,8 +4,6 @@ public interface Const {
 	
 	public static final String DOMAIN="http://121.40.224.43/opencenter/";
 
-	public static final String IMAGE_DOMAIN="http://121.40.224.43/";
-	
 	/**登录*/
 	public static final String LOGIN=DOMAIN+"index.php?s=/ucenter/app/login";
 	
@@ -68,6 +66,9 @@ public interface Const {
 
 	/**我的照片列表*/
 	public static final String MY_PHOTO_LIST =DOMAIN+"index.php?s=/interaction/appAdmin/pic_list";
+
+	/**我的照片详情*/
+	public static final String MY_PHOTO_DETAIL =DOMAIN+"/index.php?s=/interaction/app/pic_detail";
 
 	/**用户登录id*/
 	public static final String UID="com.wy.roadtrip.uid";
