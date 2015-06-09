@@ -1,13 +1,13 @@
 package com.wy.roadtrip.activity.photo;
 
 import com.froyo.commonjar.activity.BaseActivity;
+import com.wy.roadtrip.R;
 
 public class MyTestActivity extends BaseActivity {
 
 	@Override
 	protected int setLayoutResID() {
-		// TODO Auto-generated method stub
-		return 0;
+		return R.layout.activity_photo_detail;
 	}
 
 }
