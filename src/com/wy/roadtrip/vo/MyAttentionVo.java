@@ -1,5 +1,7 @@
 package com.wy.roadtrip.vo;
 
+import java.io.Serializable;
+
 /**
  * 
  * @Des: 我的关注follow_who，我的粉丝who_follow(客户端不关注这两个字段)
@@ -7,7 +9,7 @@ package com.wy.roadtrip.vo;
  * @version V1.0
  * @created 2015年6月6日 下午4:37:15
  */
-public class MyAttentionVo {
+public class MyAttentionVo implements Serializable{
 	private String follow_who;
 	private boolean isFollowed;
 	private User user;
@@ -36,7 +38,7 @@ public class MyAttentionVo {
 		this.user = user;
 	}
 
-	public class User {
+	public class User implements Serializable{
 		private String uid;
 		private String following;
 		private String title;

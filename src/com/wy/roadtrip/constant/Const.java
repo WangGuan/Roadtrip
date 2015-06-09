@@ -70,6 +70,9 @@ public interface Const {
 	/**我的照片详情*/
 	public static final String MY_PHOTO_DETAIL =DOMAIN+"/index.php?s=/interaction/app/pic_detail";
 
+	/**个人信息中心*/
+	public static final String MY_INFO =DOMAIN+"/index.php?s=/ucenter/app/user_center_info";
+
 	/**用户登录id*/
 	public static final String UID="com.wy.roadtrip.uid";
 	
