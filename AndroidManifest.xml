@@ -78,6 +78,10 @@
         <activity
             android:name=".activity.mystyle.MyAttentionActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name=".activity.mystyle.InfoActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".activity.order.OrderActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
@@ -86,6 +90,10 @@
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".activity.photo.PhotoDetailActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name=".activity.photo.MyTestActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".activity.portal.LoginActivity"

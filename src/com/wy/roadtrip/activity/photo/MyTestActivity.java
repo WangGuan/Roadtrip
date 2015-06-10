@@ -7,7 +7,7 @@ public class MyTestActivity extends BaseActivity {
 
 	@Override
 	protected int setLayoutResID() {
-		return R.layout.activity_photo_detail;
+		return R.layout.activity_photo_test;
 	}
 
 }
