@@ -10,4 +10,12 @@ public class MyTestActivity extends BaseActivity {
 		return R.layout.activity_photo_test;
 	}
 
+	@Override
+	public void doBusiness() {
+		// TODO Auto-generated method stub
+		super.doBusiness();
+	}
+	
+	
+
 }

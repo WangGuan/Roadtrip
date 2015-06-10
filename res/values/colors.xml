@@ -15,5 +15,8 @@
     <color name="viewfinder_mask">#60000000</color>
     <color name="result_view">#b0000000</color>
     <color name="possible_result_points">#c0ffff00</color>
+    
+    <!-- bottomBar alpha 85% -->
+    <color name="bottom_bar_blue">#D950BBDB</color>
 
 </resources>
