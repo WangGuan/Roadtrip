@@ -91,6 +91,10 @@
         <activity
             android:name=".activity.photo.PhotoDetailActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name=".activity.photo.MyTestActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".activity.portal.LoginActivity"
             android:windowSoftInputMode="stateHidden" >

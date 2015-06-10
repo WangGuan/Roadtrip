@@ -19,6 +19,7 @@ import com.wy.roadtrip.activity.mystyle.MyAttentionActivity;
 import com.wy.roadtrip.activity.mystyle.MyFansActivity;
 import com.wy.roadtrip.activity.mystyle.MyMsgActivity;
 import com.wy.roadtrip.activity.mystyle.MystyleActivity;
+import com.wy.roadtrip.activity.photo.MyTestActivity;
 import com.wy.roadtrip.activity.photo.PhotoActivity;
 import com.wy.roadtrip.constant.Const;
 
@@ -86,7 +87,8 @@ public class FragmentHome extends BaseFragment {
 
 	@OnClick(R.id.rl_map)
 	void offlineMap(View view) {
-		activity.skip(OfflineMapActivity.class);
+		activity.skip(MyTestActivity.class);
+//		activity.skip(OfflineMapActivity.class);
 	}
 
 	@OnClick(R.id.tv_follow)
